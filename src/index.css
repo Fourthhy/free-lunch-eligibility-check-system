@@ -81,4 +81,6 @@
   }
 }
 
-
+* {
+  overflow-y: hidden;
+}

@@ -145,7 +145,7 @@ const Sidebar = React.forwardRef((
     return (
       (<div
         className={cn(
-          "flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
+          "flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground border-black border-[1px]",
           className
         )}
         ref={ref}
@@ -194,7 +194,7 @@ const Sidebar = React.forwardRef((
         )} />
       <div
         className={cn(
-          "duration-200 fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] ease-linear md:flex",
+          "duration-200 border-none fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] ease-linear md:flex",
           side === "left"
             ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
@@ -207,7 +207,7 @@ const Sidebar = React.forwardRef((
         {...props}>
         <div
           data-sidebar="sidebar"
-          className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow">
+          className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow mt-[145px] border-none">
           {children}
         </div>
       </div>
@@ -330,7 +330,7 @@ const SidebarContent = React.forwardRef(({ className, ...props }, ref) => {
       ref={ref}
       data-sidebar="content"
       className={cn(
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
+        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden border-none",
         className
       )}
       {...props} />)
