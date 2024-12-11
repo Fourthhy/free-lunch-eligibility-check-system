@@ -1,4 +1,4 @@
-import HeaderBar from "./componentsReusable/HeaderBar"
+import HeaderBar from "./components/reusableComponents/HeaderBar"
 
 
 function App() {
