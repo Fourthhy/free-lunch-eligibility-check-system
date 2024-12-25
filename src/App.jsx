@@ -1,11 +1,10 @@
-import LandingPage from "./components/LandingPage"
-import HeaderBar from "./components/reusableComponents/HeaderBar"
+import LoginPage from "./components/LoginPage"
 
 function App() {
 
   return (
     <>
-      <LandingPage />
+      <LoginPage />
     </>
   )
 }
