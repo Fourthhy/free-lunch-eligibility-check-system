@@ -1,6 +1,6 @@
 import HeaderBar from "./reusableComponents/HeaderBar";
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, CircleArrowLeft } from "lucide-react";
 
 const KStaffPageVersion2 = () => {
   const [studentID, setStudentID] = useState("");
@@ -14,11 +14,21 @@ const KStaffPageVersion2 = () => {
       "21-00012345": {
         name: "Manlulu, Ines C.",
         course: "BS INFORMATION SYSTEMS 3",
-        mealStatus: "ELIGIBLE",
+        mealStatus: "INELIGIBLE",
       },
       "21-00067890": {
         name: "Garcia, Juan A.",
-        course: "BS COMPUTER SCIENCE 2",
+        course: "BS INFORMATION SYSTEMS 2",
+        mealStatus: "CLAIMED",
+      },
+      "22-00157JCI": {
+        name: "Imperial, Jerome C.",
+        course: "BS INFORMATION SYSTEMS 3",
+        mealStatus: "ELIGIBLE",
+      },
+      "22-00168PCM": {
+        name: "Puno, Miguel C.",
+        course: "BS INFORMATION SYSTEMS 3",
         mealStatus: "CLAIMED",
       },
     };
@@ -27,22 +37,24 @@ const KStaffPageVersion2 = () => {
 
   useEffect(() => {
     if (studentID.trim()) {
-      const data = fetchStudentData(studentID);
+      const data = fetchStudentData(studentID.toUpperCase());
+
       if (data) {
         setStudentName(data.name);
         setCourse(data.course);
         setMealStatus(data.mealStatus);
-      } else {
-        setStudentName("Surname, Firstname M.I.");
-        setCourse("Program and Year");
+      } else if (studentID.trim().length >= 11) { // Validate ID length
+        setStudentName("Unknown");
+        setCourse("Unknown");
         setMealStatus("INELIGIBLE");
       }
 
-      // Auto-clear the input after 3 seconds
-      const timer = setTimeout(() => setStudentID(""), 1500);
+      // Auto-clear the input after 2 seconds
+      const timer = setTimeout(() => setStudentID(""), 2000);
       return () => clearTimeout(timer);
     }
   }, [studentID]);
+
 
   const handleInputChange = (e) => {
     setStudentID(e.target.value);
@@ -64,6 +76,10 @@ const KStaffPageVersion2 = () => {
     }
   };
 
+  const handleBack = () => {
+    alert("Navigating back...");
+  };
+
   return (
     <>
       <HeaderBar />
@@ -75,7 +91,18 @@ const KStaffPageVersion2 = () => {
           backgroundImage: "url('./src/assets/K_Staff_Page/bg-building.svg')",
         }}
       >
-        <div className="absolute inset-0 bg-[#1F3463] bg-opacity-80 backdrop-blur-[5px]"></div>
+        <div className="absolute inset-0 bg-[#1F3463] bg-opacity-80 backdrop-blur-[5px] z-0"></div>
+
+        {/* Back button */}
+        <div className="absolute top-0 left-0 px-4 py-2 flex items-center">
+          <button
+            onClick={handleBack}
+            className="flex items-center text-[#F8F8F899] hover:text-[#F8F8F8]"
+          >
+            <CircleArrowLeft size={24} className="mr-2" /> {/* Back Icon */}
+            <span className="text-lg">Back</span>
+          </button>
+        </div>
 
         <div className="form-wrapper max-w-[60%] flex flex-col justify-center items-center relative z-10">
           <div className="grid grid-cols-[auto,1fr] gap-7 px-20 pb-10 z-10">
