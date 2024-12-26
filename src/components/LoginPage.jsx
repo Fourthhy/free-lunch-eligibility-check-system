@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { IoMdArrowBack } from "react-icons/io";
+import { Link } from "react-router-dom"
 import HeaderBar from "./reusableComponents/HeaderBar"
 
 export default function LoginPage() {
@@ -11,7 +13,12 @@ export default function LoginPage() {
                 className="h-[calc(100vh-145px)] w-[100%] bg-cover bg-center relative flex justify-center items-center"
                 style={{ 'backgroundImage': 'url(/background-image.svg)' }}>
                 <div className="absolute inset-0 bg-[rgba(31,52,99,0.8)]"></div>
-
+                <div className="absolute w-[100%] h-[100%] font-roboto text-[16px] text-white p-[10px]">
+                    <Link className="flex" to="/">
+                        <IoMdArrowBack className="mt-[3px] mr-[5px]"/>
+                        back
+                    </Link>
+                </div>
                 <div className="absolute">
                     <div className="text-[40px] text-white font-roboto font-bold flex justify-center mb-[35px]">
                         Log-in as Admin
@@ -61,6 +68,7 @@ export default function LoginPage() {
                         </div>
                     </div>
                 </div>
+
             </div>
         </>
     )

@@ -22,7 +22,9 @@ function LandingPage() {
                             </p>
 
                             <div className="flex justify-center items-center mb-[25px] gap-[15px]"> 
-                                <button className="w-[120px] h-[40px] bg-[#3B82F6] text-white font-roboto text-[1rem] rounded-[20px]"> <Link to="/admin"> Admin </Link></button>
+                                <Link to="/admin">
+                                    <button className="w-[120px] h-[40px] bg-[#3B82F6] text-white font-roboto text-[1rem] rounded-[20px]">  Admin </button>
+                                </Link>
 
                                 <button className="w-[120px] h-[40px] border-[2px] border-white rounded-[20px] text-white font-roboto">Kitchen Staff</button>
                             </div>
