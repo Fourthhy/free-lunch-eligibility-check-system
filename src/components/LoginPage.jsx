@@ -10,7 +10,7 @@ export default function LoginPage() {
         <>
             <HeaderBar />
             <div
-                className="h-[calc(100vh-145px)] w-[100%] bg-cover bg-center relative flex justify-center items-center"
+                className="h-[calc(100vh-110px)] w-[100%] bg-cover bg-center relative flex justify-center items-center"
                 style={{ 'backgroundImage': 'url(/background-image.svg)' }}>
                 <div className="absolute inset-0 bg-[rgba(31,52,99,0.8)]"></div>
                 <div className="absolute w-[100%] h-[100%] font-roboto text-[16px] text-white p-[10px]">
