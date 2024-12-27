@@ -37,7 +37,7 @@ function LandingPage() {
                     </div>
 
                     <div className="h-[calc(100vh-145px)] w-full  flex items-center">
-                        <img src="/hero-image.svg" alt="" className="h-[80%] ml-[1vw]"/>
+                        <img src="/hero-image.svg" alt="" className="h-[80%]  ml-[1vw]"/>
                     </div>
 
                 </div>
