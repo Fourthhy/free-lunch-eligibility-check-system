@@ -8,7 +8,7 @@ function LandingPage() {
         <div 
             className="h-[calc(100vh-110px)] bg-cover bg-center relative"
             style={{'backgroundImage': 'url(/background-image.svg)'}}>
-            <div className="absolute inset-0 bg-[rgba(31,52,99,0.8)]"></div>
+            <div className="absolute inset-0 bg-[#1F3463] bg-opacity-80 backdrop-blur-[5px] z-0"></div>
 
             <div
                 className="grid grid-cols-2 grid-rows-auto z-10 relative">
@@ -29,7 +29,9 @@ function LandingPage() {
                                         <button className="w-[120px] h-[40px] bg-[#3B82F6] text-white font-roboto text-[1rem] rounded-[20px]">  Admin </button>
                                     </Link>
 
-                                    <button className="w-[120px] h-[40px] border-[2px] border-white rounded-[20px] text-white font-roboto">Kitchen Staff</button>
+                                    <Link to="/kstaff">
+                                        <button className="w-[120px] h-[40px] border-[2px] border-white rounded-[20px] text-white font-roboto">Kitchen Staff</button>
+                                    </Link>
                                 </div>
                             </div>
 
