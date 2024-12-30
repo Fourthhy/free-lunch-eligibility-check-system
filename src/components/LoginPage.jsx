@@ -12,7 +12,7 @@ export default function LoginPage() {
             <div
                 className="h-[calc(100vh-110px)] w-[100%] bg-cover bg-center relative flex justify-center items-center"
                 style={{ 'backgroundImage': 'url(/background-image.svg)' }}>
-                <div className="absolute inset-0 bg-[rgba(31,52,99,0.8)]"></div>
+                <div className="absolute inset-0 bg-[#1F3463] bg-opacity-80 backdrop-blur-[5px] z-0"></div>
                 <div className="absolute w-[100%] h-[100%] font-roboto text-[16px] text-white p-[10px]">
                     <Link className="flex" to="/">
                         <IoMdArrowBack className="mt-[3px] mr-[5px]"/>
