@@ -85,7 +85,7 @@ const KStaffPage = () => {
         className="relative w-full bg-cover bg-center flex justify-center items-center"
         style={{
           height: "calc(100vh - 110px)",
-          backgroundImage: "url('./src/assets/K_Staff_Page/bg-building.svg')",
+          backgroundImage: "url('/background-image.svg')",
         }}
       >
         <div className="absolute inset-0 bg-[#1F3463] bg-opacity-80 backdrop-blur-[5px] z-0"></div>
@@ -105,7 +105,7 @@ const KStaffPage = () => {
           <div className="grid grid-cols-[auto,1fr] gap-7 px-20 pb-10 z-10">
             <div className="profile-picture">
               <img
-                src="./src/assets/K_Staff_Page/user-default.svg"
+                src="/user-default.svg"
                 alt="Profile"
                 className="max-w-none"
               />
