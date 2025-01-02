@@ -54,13 +54,13 @@ const items = [
     {
     title: "Schedule",
     url: "#",
-    icon: Table,
+    icon: Calendar,
     subItems: [],
   },
   {
     title: "Masterlist",
     url: "#",
-    icon: Inbox,
+    icon: Table,
     subItems: [
       { title: "ACT 1", url: "#reminders-a" },
       { title: "ACT 2", url: "#reminders-a" },
