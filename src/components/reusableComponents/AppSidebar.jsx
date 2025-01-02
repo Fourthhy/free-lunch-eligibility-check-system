@@ -51,8 +51,14 @@ const items = [
     icon: ChartNetwork,
     subItems: [],
   },
+    {
+    title: "Schedule",
+    url: "#",
+    icon: Table,
+    subItems: [],
+  },
   {
-    title: "Students List",
+    title: "Masterlist",
     url: "#",
     icon: Inbox,
     subItems: [
@@ -65,13 +71,7 @@ const items = [
     ],
   },
   {
-    title: "Free Lunch Eligibility Chart",
-    url: "#",
-    icon: Table,
-    subItems: [],
-  },
-  {
-    title: "Reminders",
+    title: "Daily",
     url: "#",
     icon: Book,
     subItems: [],
