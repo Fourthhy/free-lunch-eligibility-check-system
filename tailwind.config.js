@@ -4,6 +4,9 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
+		fontSize: {
+			'sysTitle': ['clamp(1.5rem, 5vw + 1rem, 2.5rem)', { lineHeight: '1.2' }],
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -60,7 +63,10 @@ export default {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			}
-  		}
+  		},
+	fontFamily: {
+		roboto: ['Roboto', 'sans-serif']
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
