@@ -7,7 +7,7 @@ import {
     TableCell,
     TableRow,
 } from "@/components/ui/table";
-
+import { Input } from '@/components/ui/input';
 export default function Masterlist() {
     const Badge = ({ status }) => {
         return (
@@ -75,7 +75,7 @@ export default function Masterlist() {
                         <TableRow key={index}>
                             <TableCell className="w-1/5">
                                 {editRowIndex === index ? (
-                                    <input
+                                    <Input
                                         type="text"
                                         value={data.name}
                                         onChange={(e) => handleChange(e, index, 'name')}
@@ -87,7 +87,7 @@ export default function Masterlist() {
                             </TableCell>
                             <TableCell className="w-1/5">
                                 {editRowIndex === index ? (
-                                    <input
+                                    <Input
                                         type="text"
                                         value={data.studentID}
                                         onChange={(e) => handleChange(e, index, 'studentID')}
@@ -99,7 +99,7 @@ export default function Masterlist() {
                             </TableCell>
                             <TableCell className="w-1/5">
                                 {editRowIndex === index ? (
-                                    <input
+                                    <Input
                                         type="text"
                                         value={data.courseAndYear}
                                         onChange={(e) => handleChange(e, index, 'courseAndYear')}
