@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { IoMdArrowBack } from "react-icons/io";
+import { X, CircleArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom"
 import HeaderBar from "./reusableComponents/HeaderBar"
 
@@ -13,12 +14,17 @@ export default function LoginPage() {
                 className="h-[calc(100vh-110px)] w-[100%] bg-cover bg-center relative flex justify-center items-center"
                 style={{ 'backgroundImage': 'url(/background-image.svg)' }}>
                 <div className="absolute inset-0 bg-[#1F3463] bg-opacity-80 backdrop-blur-[5px] z-0"></div>
-                <div className="absolute w-[100%] h-[100%] font-roboto text-[16px] text-white p-[10px]">
-                    <Link className="flex" to="/">
-                        <IoMdArrowBack className="mt-[3px] mr-[5px]"/>
-                        back
-                    </Link>
+
+                <div className="absolute top-0 left-0 px-4 py-2 flex items-center">
+                  <Link to="/">
+                    <button
+                      className="flex items-center text-[#F8F8F899] hover:text-[#F8F8F8]">
+                      <CircleArrowLeft size={24} className="mr-2" /> {/* Back Icon */}
+                      <span className="text-lg">Back</span>
+                    </button>
+                  </Link> 
                 </div>
+                
                 <div className="absolute">
                     <div className="text-[40px] text-white font-roboto font-bold flex justify-center mb-[35px]">
                         Log-in as Admin
