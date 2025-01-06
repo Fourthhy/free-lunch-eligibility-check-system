@@ -39,7 +39,7 @@ const data = {
   navMain: [
     {
       title: "Insights",
-      url: "#",
+      url: "insight",
       icon: ChartNetwork,
       isActive: true,
       items: [
@@ -51,12 +51,12 @@ const data = {
     },
     {
       title: "Schedule",
-      url: "#",
+      url: "schedule",
       icon: Calendar,
     },
     {
       title: "Masterlist",
-      url: "#",
+      url: "masterlist",
       icon: Table,
         items: [
           { title: "ACT 1", url: "#reminders-a" },
@@ -69,7 +69,7 @@ const data = {
     },
     {
       title: "Daily Operation",
-      url: "#",
+      url: "operation",
       icon: Book,
     },
   ],
