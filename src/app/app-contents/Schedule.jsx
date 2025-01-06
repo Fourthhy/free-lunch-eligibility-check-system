@@ -96,12 +96,12 @@ export default function Schedule() {
                 <TableBody>
                     {mockSchedule.map((schedule, index) => (
                         <TableRow key={index}>
-                            <TableCell>{schedule.course}</TableCell>
-                            <TableCell><Badge status={schedule.days.monday} /></TableCell>
-                            <TableCell><Badge status={schedule.days.tuesday} /></TableCell>
-                            <TableCell><Badge status={schedule.days.wednesday} /></TableCell>
-                            <TableCell><Badge status={schedule.days.thursday} /></TableCell>
-                            <TableCell><Badge status={schedule.days.friday} /></TableCell>
+                            <TableCell className="w-1/6">{schedule.course}</TableCell>
+                            <TableCell className="w-1/6"><Badge status={schedule.days.monday} /></TableCell>
+                            <TableCell className="w-1/6"><Badge status={schedule.days.tuesday} /></TableCell>
+                            <TableCell className="w-1/6"><Badge status={schedule.days.wednesday} /></TableCell>
+                            <TableCell className="w-1/6"><Badge status={schedule.days.thursday} /></TableCell>
+                            <TableCell className="w-1/6"><Badge status={schedule.days.friday} /></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

@@ -60,8 +60,8 @@ export default function Page() {
           <div className="flex flex-1 flex-col gap-4 p-4 pt-0"> {/*THIS IS WHERE YOUR CONTENT GOES*/}
           
           {/* <Insights /> */}
-          {/* <Masterlist /> */}
-          <Schedule />
+          <Masterlist />
+          {/* <Schedule /> */}
           {/* <DailyOperation /> */}
 
           </div>
