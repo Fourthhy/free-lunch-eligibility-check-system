@@ -2,9 +2,12 @@
 
 import * as React from "react"
 import {
+  Book,
   BookOpen,
   Bot,
+  Calendar,
   Command,
+  ChartNetwork,
   Frame,
   LifeBuoy,
   Map,
@@ -12,6 +15,7 @@ import {
   Send,
   Settings2,
   SquareTerminal,
+  Table,
 } from "lucide-react"
 
 import { NavMain } from "./nav-main"
@@ -36,37 +40,37 @@ const data = {
     {
       title: "Insights",
       url: "#",
-      icon: PieChart,
+      icon: ChartNetwork,
       isActive: true,
       items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
+        { title: "Daily", url: "#", },
+        { title: "Weekly", url: "#", },
+        { title: "Monthly", url: "#", },
+        { title: "Semester", url: "#", },
       ],
     },
     {
       title: "Schedule",
       url: "#",
-      icon: Bot,
+      icon: Calendar,
     },
     {
       title: "Masterlist",
       url: "#",
-      icon: BookOpen,
+      icon: Table,
+        items: [
+          { title: "ACT 1", url: "#reminders-a" },
+          { title: "ACT 2", url: "#reminders-a" },
+          { title: "BSIS 1", url: "#reminders-a" },
+          { title: "BSIS 2", url: "#reminders-a" },
+          { title: "BSIS 3", url: "#reminders-a" },
+          { title: "BSIS 4", url: "#reminders-a" },
+      ],
     },
     {
-      title: "Daily",
+      title: "Daily Operation",
       url: "#",
-      icon: Settings2,
+      icon: Book,
     },
   ],
 }
