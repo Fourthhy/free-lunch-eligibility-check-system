@@ -1,5 +1,7 @@
 "use client"
 
+import { Link } from "react-router-dom"
+
 import {
   BadgeCheck,
   Bell,
@@ -52,7 +54,9 @@ export function NavUser({user}) {
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
+            
           </DropdownMenuTrigger>
+
           <DropdownMenuContent
             className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
             side={isMobile ? "bottom" : "right"}
@@ -60,11 +64,17 @@ export function NavUser({user}) {
             sideOffset={4}
           >
             
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut />
-              Log out
-            </DropdownMenuItem>
+              <Link to="/admin">
+                <DropdownMenuItem>
+                  <div className="cursor-pointer flex items-center">
+                    <div className="mr-[10px]">
+                      <LogOut />
+                    </div>
+                    Log out
+                  </div>
+                </DropdownMenuItem>
+              </Link>
+            
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
