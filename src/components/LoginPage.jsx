@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import HeaderBar from "./reusableComponents/HeaderBar"
 
 export default function LoginPage() {
-    const [error, setError] = useState('error');
+    const [error, setError] = useState(null);
 
     return (
         <>
