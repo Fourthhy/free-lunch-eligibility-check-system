@@ -6,7 +6,7 @@ function AdminPage() {
     return (
         <>
             <HeaderBar />
-                <div className="ml-[30px] h-screen w-screen border-[1px] border-black absolute">
+                <div className="ml-[30px] h-screen w-screen absolute">
                     content
                 </div>
             <AdminSidebar />

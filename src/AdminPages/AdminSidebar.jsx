@@ -9,7 +9,7 @@ export default function AdminSidebar({ children }) {
         <div style={{ display: "flex" }} className="relative">
           <AppSidebar />
           <main style={{ flex: 1 }}>
-            <div>
+            <div className="border-[1px] border-black ">
               <SidebarTrigger />
             </div>
             
