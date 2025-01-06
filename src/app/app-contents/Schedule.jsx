@@ -83,8 +83,8 @@ export default function Schedule() {
         <>
             <Table>
                 <TableCaption>Weekly Course Meal Schedule</TableCaption>
-                <TableHeader>
-                    <TableRow className="bg-[#1f3463] text-white">
+                <TableHeader >
+                    <TableRow isHeaderRow className="bg-[#1f3463] text-white">
                         <TableHead>Course</TableHead>
                         <TableHead>Monday</TableHead>
                         <TableHead>Tuesday</TableHead>
