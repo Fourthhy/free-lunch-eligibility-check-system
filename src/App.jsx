@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom
 import Page from "./app/dashboard/page";
 import Insights from "./app/app-contents/Insights";
 import Masterlist from "./app/app-contents/Masterlist";
+import MasterlistV2 from "./app/app-contents/MasterlistV2";
 import Schedule from "./app/app-contents/Schedule";
 import DailyOperation from "./app/app-contents/DailyOperation";
 
@@ -22,7 +23,7 @@ function App() {
             <Route index element={<Insights />} />
             <Route path="/adminPage/insight" element={<Insights />} />
             <Route path="/adminPage/schedule" element={<Schedule />} />
-            <Route path="/adminPage/masterlist" element={<Masterlist />} />
+            <Route path="/adminPage/masterlist" element={<MasterlistV2 />} />
             <Route path="/adminPage/operation" element={<DailyOperation />} />
           </Route>
         </Routes>
