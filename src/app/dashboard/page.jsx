@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sidebar"
 import Insights from "../app-contents/Insights"
 import Masterlist from "../app-contents/Masterlist"
+import MasterlistV2 from "../app-contents/MasterlistV2"
 import Schedule from "../app-contents/Schedule"
 import DailyOperation from "../app-contents/DailyOperation"
 
@@ -63,6 +64,7 @@ export default function Page() {
               {/*OUTLET OF ROUTE IN APP.JSX*/}
               <Outlet />
             </div>
+
 
 
           </SidebarInset>
