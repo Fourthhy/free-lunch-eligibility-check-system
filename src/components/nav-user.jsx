@@ -64,7 +64,6 @@ export function NavUser({ user }) {
             align="end"
             sideOffset={4}
           >
-
             <Link to="/admin">
               <DropdownMenuItem>
                 <div className="cursor-pointer flex items-center">
@@ -75,9 +74,7 @@ export function NavUser({ user }) {
                 </div>
               </DropdownMenuItem>
             </Link>
-
             <DropdownMenuSeparator />
-
               <DropdownMenuItem>
                 <div className="cursor-pointer flex items-center">
                   <div className="mr-[10px]">
@@ -86,8 +83,6 @@ export function NavUser({ user }) {
                   Log out
                 </div>
               </DropdownMenuItem>
-            
-
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
