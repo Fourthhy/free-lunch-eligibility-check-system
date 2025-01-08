@@ -15,7 +15,7 @@ export default class Example extends PureComponent {
 
     render() {
         return (
-            <ResponsiveContainer width="100%" height="75%" className="border-[1px] border-black">
+            <ResponsiveContainer width="100%" height="75%">
                 <BarChart
                     data={data}
                     width={200} 
