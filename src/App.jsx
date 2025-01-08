@@ -25,10 +25,10 @@ function App() {
           <Route path="/adminPage/" element={<Page />}>
             <Route index element={<Daily />} />
             <Route path="/adminPage/insight" element={<Daily />} />
-              <Route path="/adminPage/insight/daily" element={<Daily />} />
-              <Route path="/adminPage/insight/weekly" element={<Weekly />} />
-              <Route path="/adminPage/insight/monthly" element={<Monthly />} />
-              <Route path="/adminPage/insight/semestral" element={<Semestral />} />
+              <Route path="/adminPage/insights/daily" element={<Daily />} />
+              <Route path="/adminPage/insights/weekly" element={<Weekly />} />
+              <Route path="/adminPage/insights/monthly" element={<Monthly />} />
+              <Route path="/adminPage/insights/semestral" element={<Semestral />} />
             <Route path="/adminPage/schedule" element={<Schedule />} />
               <Route path="/adminPage/masterlist/ACT-students" element={<ACTstudents />} />
               <Route path="/adminPage/masterlist/BSIS-students" element={<BSISstudents />} />
