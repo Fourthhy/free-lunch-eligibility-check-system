@@ -1,6 +1,6 @@
 import React from 'react';
-import Example from "./Recharts"
-import Card from "./Card"
+import Graph from "./reusables/Graph"
+import Card from "./reusables/Card"
 
 class Daily extends React.Component {
     render() {
@@ -11,18 +11,18 @@ class Daily extends React.Component {
                         title="Total lunch claimed"
                         percentage="95%"
                         studentCount="100"
+                        height="110px"
                     />
                     <Card 
                         title="Total lunch unclaimed"
                         percentage="5%"
                         studentCount="100"
+                        height="110px"
                     />
                     <div className="w-full h-[600px] col-span-2 bg-sidebar-accent rounded-m">
-                        <Example />
+                        <Graph />
                     </div>
-
                 </div>
-
             </>
         )
     }
