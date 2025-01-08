@@ -75,6 +75,7 @@ export function NavUser({ user }) {
               </DropdownMenuItem>
             </Link>
             <DropdownMenuSeparator />
+            <Link to="/admin">
               <DropdownMenuItem>
                 <div className="cursor-pointer flex items-center">
                   <div className="mr-[10px]">
@@ -83,6 +84,7 @@ export function NavUser({ user }) {
                   Log out
                 </div>
               </DropdownMenuItem>
+            </Link>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

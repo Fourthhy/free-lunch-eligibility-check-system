@@ -37,7 +37,7 @@ class Daily extends React.Component {
                     <div className="row-span-3 col-span-2">
                         <Ranking list={list}/>
                     </div>
-                    <div className="w-full h-[600px] col-span-3 bg-sidebar-accent rounded-m">
+                    <div className="w-full h-[500px] col-span-3 bg-sidebar-accent rounded-m">
                         <Graph />
                     </div>
                 </div>

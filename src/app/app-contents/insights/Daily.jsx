@@ -19,7 +19,7 @@ class Daily extends React.Component {
                         studentCount="100"
                         height="110px"
                     />
-                    <div className="w-full h-[600px] col-span-2 bg-sidebar-accent rounded-m">
+                    <div className="w-full h-[500px] col-span-2 bg-sidebar-accent rounded-m">
                         <Graph />
                     </div>
                 </div>
