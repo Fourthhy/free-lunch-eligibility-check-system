@@ -24,7 +24,7 @@ function App() {
             <Route index element={<Insights />} />
             <Route path="/adminPage/insight" element={<Insights />} />
             <Route path="/adminPage/schedule" element={<Schedule />} />
-            <Route path="/adminPage/masterlist" element={<MasterlistV3 />} />
+            <Route path="/adminPage/masterlist" element={<Masterlist />} />
             <Route path="/adminPage/operation" element={<DailyOperation />} />
           </Route>
         </Routes>

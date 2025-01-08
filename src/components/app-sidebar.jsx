@@ -59,8 +59,8 @@ const data = {
       url: "masterlist",
       icon: Table,
         items: [
-          { title: "ACT", url: "#reminders-a" },
-          { title: "BSIS", url: "#reminders-a" },
+          { title: "ACT", url: "#" },
+          { title: "BSIS", url: "#" },
       ],
     },
     {
