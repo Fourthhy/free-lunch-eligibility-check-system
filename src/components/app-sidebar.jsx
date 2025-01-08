@@ -56,11 +56,11 @@ const data = {
     },
     {
       title: "Masterlist",
-      url: "masterlist",
+      url: "masterlist/ACT-students",
       icon: Table,
         items: [
-          { title: "ACT", url: "#" },
-          { title: "BSIS", url: "#" },
+          { title: "ACT", url: "masterlist/ACT-students" },
+          { title: "BSIS", url: "masterlist/BSIS-students" },
       ],
     },
     {

@@ -3,10 +3,9 @@ import LandingPage from "./components/LandingPage"
 import LoginPage from "./components/LoginPage";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Page from "./app/dashboard/page";
-import Insights from "./app/app-contents/Insights";
-import Masterlist from "./app/app-contents/Masterlist";
-import MasterlistV2 from "./app/app-contents/MasterlistV2";
-import MasterlistV3 from "./app/app-contents/MasterlistV3";
+import Daily from "./app/app-contents/insights/Daily";
+import BSISstudents from "./app/app-contents/Masterlist/BSISstudents";
+import ACTstudents from "./app/app-contents/Masterlist/ACTstudents"
 import Schedule from "./app/app-contents/Schedule";
 import DailyOperation from "./app/app-contents/DailyOperation";
 
@@ -21,10 +20,11 @@ function App() {
           <Route path="/admin" element={<LoginPage />} />
           <Route path="/kstaff" element={<KStaffPage />} />
           <Route path="/adminPage/" element={<Page />}>
-            <Route index element={<Insights />} />
-            <Route path="/adminPage/insight" element={<Insights />} />
+            <Route index element={<Daily />} />
+            <Route path="/adminPage/insight" element={<Daily />} />
             <Route path="/adminPage/schedule" element={<Schedule />} />
-            <Route path="/adminPage/masterlist" element={<Masterlist />} />
+              <Route path="/adminPage/masterlist/ACT-students" element={<ACTstudents />} />
+              <Route path="/adminPage/masterlist/BSIS-students" element={<BSISstudents />} />
             <Route path="/adminPage/operation" element={<DailyOperation />} />
           </Route>
         </Routes>

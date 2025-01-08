@@ -23,18 +23,16 @@ export default function MasterlistV3() {
 
     const [studentData, setStudentData] = useState({
         firstYear: [
-            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true },
+            { name: "Miguel Mañabo", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
+            { name: "Christian Isip", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
+            { name: "Lorenz Reyes", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
+            { name: "Jerome Imperial", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
+            { name: "Jean Talen", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
+            { name: "Princess Olingay", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
+            { name: "Trisha Olorvida", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
+            { name: "Justine Marco", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
+            { name: "Shaina Pagarigan", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
+            { name: "Alicia Medina", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
         ],
         secondYear: [
             { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: true },
@@ -180,7 +178,6 @@ export default function MasterlistV3() {
 
     return (
         <div className="tabs-wrapper w-full">
-            Content
             <Tabs defaultValue="firstYear" className="w-full">
                 <TabsList>
                     <TabsTrigger value="firstYear" onClick={() => setEditedData(studentData.firstYear)}>1st Year</TabsTrigger>

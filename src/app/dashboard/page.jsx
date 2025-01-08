@@ -15,9 +15,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import Insights from "../app-contents/Insights"
-import Masterlist from "../app-contents/Masterlist"
-import MasterlistV2 from "../app-contents/MasterlistV2"
+import Insights from "../app-contents/insights/Daily"
+import Masterlist from "../app-contents/Masterlist/BSISstudents"
 import Schedule from "../app-contents/Schedule"
 import DailyOperation from "../app-contents/DailyOperation"
 
@@ -60,13 +59,10 @@ export default function Page() {
               </div>
             </header>
 
-            <div className="flex flex-1 flex-col gap-4 p-4 pt-0"> {/*THIS IS WHERE YOUR CONTENT GOES*/}
+            <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
               {/*OUTLET OF ROUTE IN APP.JSX*/}
               <Outlet />
             </div>
-
-
-
           </SidebarInset>
         </SidebarProvider>
       </div>
