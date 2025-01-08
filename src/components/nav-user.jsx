@@ -7,6 +7,7 @@ import {
   Bell,
   ChevronsUpDown,
   CreditCard,
+  Lock,
   LogOut,
   Sparkles,
 } from "lucide-react"
@@ -32,7 +33,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavUser({user}) {
+export function NavUser({ user }) {
   const { isMobile } = useSidebar()
 
   return (
@@ -54,7 +55,7 @@ export function NavUser({user}) {
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
-            
+
           </DropdownMenuTrigger>
 
           <DropdownMenuContent
@@ -63,18 +64,25 @@ export function NavUser({user}) {
             align="end"
             sideOffset={4}
           >
-            
-              <Link to="/admin">
-                <DropdownMenuItem>
-                  <div className="cursor-pointer flex items-center">
-                    <div className="mr-[10px]">
-                      <LogOut />
-                    </div>
-                    Log out
+            <Link to="/admin">
+              <DropdownMenuItem>
+                <div className="cursor-pointer flex items-center">
+                  <div className="mr-[10px]">
+                    <Lock />
                   </div>
-                </DropdownMenuItem>
-              </Link>
-            
+                  Change Password
+                </div>
+              </DropdownMenuItem>
+            </Link>
+            <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <div className="cursor-pointer flex items-center">
+                  <div className="mr-[10px]">
+                    <LogOut />
+                  </div>
+                  Log out
+                </div>
+              </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

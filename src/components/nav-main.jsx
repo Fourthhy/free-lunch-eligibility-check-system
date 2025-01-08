@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronRight } from "lucide-react"
-
+import { Link } from "react-router-dom"
 import {
   Collapsible,
   CollapsibleContent,
@@ -27,10 +27,12 @@ export function NavMain({items}) {
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip={item.title}>
-                <a href={item.url}>
-                  <item.icon />
-                  <span>{item.title}</span>
-                </a>
+
+                <Link to={"/adminPage/" + item.url}>
+                    <item.icon />
+                    <span>{item.title}</span>
+                </Link>
+
               </SidebarMenuButton>
               {item.items?.length ? (
                 <>
@@ -45,9 +47,11 @@ export function NavMain({items}) {
                       {item.items?.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
-                              <span>{subItem.title}</span>
-                            </a>
+
+                            <Link to={"/adminPage/" + subItem.url}>
+                                <span>{subItem.title}</span>
+                            </Link>
+
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
                       ))}

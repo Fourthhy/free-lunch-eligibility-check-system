@@ -1,4 +1,4 @@
-import { Pencil } from 'lucide-react';
+import { Pencil, Trash} from 'lucide-react';
 import { useState } from 'react';
 import {
     Table,
@@ -12,17 +12,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { Input } from '@/components/ui/input';
 
-export default function DailyOperation() {
+export default function MasterlistV3() {
     const Badge = ({ status }) => {
         return (
-            <span className={`w-[75%] ml-[11%] h-4 flex items-center justify-center px-2 py-1 rounded-[10px] text-white 
+            <span className={`w-full h-4 flex items-center justify-center px-2 py-1 rounded-[10px] text-white 
                             ${status ? 'bg-[#60A577]' : 'bg-[#E3212E90]'}`} />
         );
     };
 
-    // Store data for each day
+
     const [studentData, setStudentData] = useState({
-        monday: [
+        firstYear: [
             { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
             { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
             { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
@@ -36,7 +36,7 @@ export default function DailyOperation() {
             { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
             { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true },
         ],
-        tuesday: [
+        secondYear: [
             { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: true },
             { name: "Mason Garcia", studentID: "1009385624798", courseAndYear: "BSIS-2", mealStatus: false },
             { name: "James White", studentID: "2546316892537", courseAndYear: "BSIT-1", mealStatus: true },
@@ -50,7 +50,7 @@ export default function DailyOperation() {
             { name: "Samuel Harris", studentID: "1962835274920", courseAndYear: "BSIT-4", mealStatus: true },
             { name: "Chloe Scott", studentID: "8127653094875", courseAndYear: "BSIS-3", mealStatus: false },
         ],
-        wednesday: [
+        thirdYear: [
             { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true },
             { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
             { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: true },
@@ -64,7 +64,7 @@ export default function DailyOperation() {
             { name: "Lucas Miller", studentID: "7564398271256", courseAndYear: "BSIS-4", mealStatus: true },
             { name: "Chloe Scott", studentID: "8127653094875", courseAndYear: "BSIS-3", mealStatus: false },
         ],
-        thursday: [
+        fourthYear: [
             { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
             { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
             { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
@@ -77,30 +77,11 @@ export default function DailyOperation() {
             { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
             { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
             { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true },
-        ],
-        friday: [
-            { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: true },
-            { name: "Mason Garcia", studentID: "1009385624798", courseAndYear: "BSIS-2", mealStatus: false },
-            { name: "James White", studentID: "2546316892537", courseAndYear: "BSIT-1", mealStatus: true },
-            { name: "Emily Martinez", studentID: "8496573124985", courseAndYear: "BSIT-4", mealStatus: false },
-            { name: "Lily Brown", studentID: "9207645123657", courseAndYear: "BSIS-3", mealStatus: true },
-            { name: "Jack Taylor", studentID: "4895712564789", courseAndYear: "BSIS-2", mealStatus: false },
-            { name: "Lucas Miller", studentID: "7564398271256", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Zoe Anderson", studentID: "3082645784093", courseAndYear: "BSIT-1", mealStatus: false },
-            { name: "Oliver King", studentID: "3987465409510", courseAndYear: "BSIT-3", mealStatus: true },
-            { name: "Grace Nelson", studentID: "5739482017435", courseAndYear: "BSIT-2", mealStatus: false },
-            { name: "Samuel Harris", studentID: "1962835274920", courseAndYear: "BSIT-4", mealStatus: true },
-            { name: "Chloe Scott", studentID: "8127653094875", courseAndYear: "BSIS-3", mealStatus: false },
-        ],
-        saturday: [
-            { name: "Zoe Anderson", studentID: "3082645784093", courseAndYear: "BSIT-1", mealStatus: false },
-            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emily Martinez", studentID: "8496573124985", courseAndYear: "BSIT-4", mealStatus: false },
         ]
     });
 
     const [editRowIndex, setEditRowIndex] = useState(null);
-    const [editedData, setEditedData] = useState(studentData.monday); // Default to Monday
+    const [editedData, setEditedData] = useState(studentData.firstYear); // Default to Monday
 
     const handleEditClick = (index) => {
         setEditRowIndex(index);
@@ -133,9 +114,7 @@ export default function DailyOperation() {
                 <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex h-12 px-4 text-center align-middle font-medium ">
                     <div className="flex-1 w-1/5 p-2 text-center align-middle">Name</div>
                     <div className="flex-1 w-1/5 p-2 text-center align-middle">ID Number</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Course & Year</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Meal Status</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Edit</div>
+                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Actions</div>
                 </div>
 
                 {/* Table body with TableRow and TableCell */}
@@ -168,39 +147,17 @@ export default function DailyOperation() {
                                         data.studentID
                                     )}
                                 </TableCell>
-                                <TableCell className="w-1/5">
-                                    {editRowIndex === index ? (
-                                        <Input
-                                            type="text"
-                                            value={data.courseAndYear}
-                                            onChange={(e) => handleChange(e, index, 'courseAndYear')}
-                                            className="border px-2 py-1 rounded"
-                                        />
-                                    ) : (
-                                        data.courseAndYear
-                                    )}
-                                </TableCell>
-                                <TableCell className="w-1/5">
-                                    {editRowIndex === index ? (
-                                        <select
-                                            value={data.mealStatus}
-                                            onChange={(e) => handleChange(e, index, 'mealStatus')}
-                                            className="border px-2 py-1 rounded"
-                                        >
-                                            <option value={true}>Eligible</option>
-                                            <option value={false}>Not Eligible</option>
-                                        </select>
-                                    ) : (
-                                        <Badge status={data.mealStatus} />
-                                    )}
-                                </TableCell>
+
                                 <TableCell className="w-1/5">
                                     {editRowIndex === index ? (
                                         <button onClick={handleSave} className="text-green-500">
                                             Save
                                         </button>
                                     ) : (
-                                        <Pencil size={16} className="m-auto cursor-pointer" onClick={() => handleEditClick(index)} />
+                                        <div className='flex justify-center items-center gap-[0px]'>
+                                            <Pencil size={18} onClick={() => handleEditClick(index)} className="w-full  cursor-pointer m-auto cursor-pointer" />
+                                            <Trash size={18} onClick={() => handleDelete(index)} className="w-full  cursor-pointer text-red-500 ml-2" />
+                                        </div>
                                     )}
                                 </TableCell>
                             </TableRow>
@@ -223,21 +180,17 @@ export default function DailyOperation() {
 
     return (
         <div className="tabs-wrapper w-full">
-            <Tabs defaultValue="monday" className="w-full">
+            <Tabs defaultValue="firstYear" className="w-full">
                 <TabsList>
-                    <TabsTrigger value="monday" onClick={() => setEditedData(studentData.monday)}>Monday</TabsTrigger>
-                    <TabsTrigger value="tuesday" onClick={() => setEditedData(studentData.tuesday)}>Tuesday</TabsTrigger>
-                    <TabsTrigger value="wednesday" onClick={() => setEditedData(studentData.wednesday)}>Wednesday</TabsTrigger>
-                    <TabsTrigger value="thursday" onClick={() => setEditedData(studentData.thursday)}>Thursday</TabsTrigger>
-                    <TabsTrigger value="friday" onClick={() => setEditedData(studentData.friday)}>Friday</TabsTrigger>
-                    <TabsTrigger value="saturday" onClick={() => setEditedData(studentData.saturday)}>Saturday</TabsTrigger>
+                    <TabsTrigger value="firstYear" onClick={() => setEditedData(studentData.firstYear)}>1st Year</TabsTrigger>
+                    <TabsTrigger value="secondYear" onClick={() => setEditedData(studentData.secondYear)}>2nd Year</TabsTrigger>
+                    <TabsTrigger value="thirdYear" onClick={() => setEditedData(studentData.thirdYear)}>3rd Year</TabsTrigger>
+                    <TabsTrigger value="fourthYear" onClick={() => setEditedData(studentData.fourthYear)}>4th Year</TabsTrigger>
                 </TabsList>
-                <TabsContent value="monday"><StudentList /></TabsContent>
-                <TabsContent value="tuesday"><StudentList /></TabsContent>
-                <TabsContent value="wednesday"><StudentList /></TabsContent>
-                <TabsContent value="thursday"><StudentList /></TabsContent>
-                <TabsContent value="friday"><StudentList /></TabsContent>
-                <TabsContent value="saturday"><StudentList /></TabsContent>
+                <TabsContent value="firstYear"><StudentList /></TabsContent>
+                <TabsContent value="secondYear"><StudentList /></TabsContent>
+                <TabsContent value="thirdYear"><StudentList /></TabsContent>
+                <TabsContent value="fourthYear"><StudentList /></TabsContent>
             </Tabs>
         </div>
     );
