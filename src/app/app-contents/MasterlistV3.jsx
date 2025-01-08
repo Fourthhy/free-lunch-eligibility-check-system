@@ -1,4 +1,4 @@
-import { Pencil } from 'lucide-react';
+import { Pencil, Trash} from 'lucide-react';
 import { useState } from 'react';
 import {
     Table,
@@ -114,9 +114,7 @@ export default function MasterlistV3() {
                 <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex h-12 px-4 text-center align-middle font-medium ">
                     <div className="flex-1 w-1/5 p-2 text-center align-middle">Name</div>
                     <div className="flex-1 w-1/5 p-2 text-center align-middle">ID Number</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Course & Year</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Meal Status</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Edit</div>
+                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Actions</div>
                 </div>
 
                 {/* Table body with TableRow and TableCell */}
@@ -149,39 +147,17 @@ export default function MasterlistV3() {
                                         data.studentID
                                     )}
                                 </TableCell>
-                                <TableCell className="w-1/5">
-                                    {editRowIndex === index ? (
-                                        <Input
-                                            type="text"
-                                            value={data.courseAndYear}
-                                            onChange={(e) => handleChange(e, index, 'courseAndYear')}
-                                            className="border px-2 py-1 rounded"
-                                        />
-                                    ) : (
-                                        data.courseAndYear
-                                    )}
-                                </TableCell>
-                                <TableCell className="w-1/5">
-                                    {editRowIndex === index ? (
-                                        <select
-                                            value={data.mealStatus}
-                                            onChange={(e) => handleChange(e, index, 'mealStatus')}
-                                            className="border px-2 py-1 rounded"
-                                        >
-                                            <option value={true}>Eligible</option>
-                                            <option value={false}>Not Eligible</option>
-                                        </select>
-                                    ) : (
-                                        <Badge status={data.mealStatus} />
-                                    )}
-                                </TableCell>
+
                                 <TableCell className="w-1/5">
                                     {editRowIndex === index ? (
                                         <button onClick={handleSave} className="text-green-500">
                                             Save
                                         </button>
                                     ) : (
-                                        <Pencil size={16} className="m-auto cursor-pointer" onClick={() => handleEditClick(index)} />
+                                        <div className='flex justify-center items-center gap-[0px]'>
+                                            <Pencil size={18} onClick={() => handleEditClick(index)} className="w-full  cursor-pointer m-auto cursor-pointer" />
+                                            <Trash size={18} onClick={() => handleDelete(index)} className="w-full  cursor-pointer text-red-500 ml-2" />
+                                        </div>
                                     )}
                                 </TableCell>
                             </TableRow>
