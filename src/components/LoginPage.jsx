@@ -68,7 +68,7 @@ export default function LoginPage() {
                                 </div>
 
                                 <div className="flex flex-col">
-                                    <Link to="/adminPage">
+                                    <Link to="/adminPage ">
                                     <button className="w-[280px] h-[40px] mt-[20px] rounded-[8px] bg-[#3B82F6] text-white"> LOG-IN </button>
                                     </Link>
                                 </div>
