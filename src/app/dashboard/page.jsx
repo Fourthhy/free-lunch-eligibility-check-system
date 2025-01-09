@@ -36,7 +36,7 @@ export default function Page() {
         break;
       case 'adminPageinsightssemestral':
         list = [{ parent: "insights", child: "Semestral" }];
-        break; adminPageschedule
+        break;
       case 'adminPageschedule':
         list = [{ parent: "Schedule"}];
         break;  
