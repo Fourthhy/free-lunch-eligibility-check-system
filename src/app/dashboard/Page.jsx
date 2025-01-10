@@ -32,7 +32,7 @@ export default function Page() {
         case 'adminPageinsight':
           list = [{ parent: "insights", child: "Daily" }];
         case 'adminPageinsightsdaily':
-          setActive(!active)
+          if (!active) {setActive(!active)}
           list = [{ parent: "insights", child: "Daily" }];
           break;
         case 'adminPageinsightsweekly':
