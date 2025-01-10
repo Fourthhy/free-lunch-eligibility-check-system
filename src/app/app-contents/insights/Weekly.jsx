@@ -2,7 +2,7 @@ import React from 'react';
 import Graph from "./reusables/Graph"
 import Card from "./reusables/Card"
 import Ranking from "./reusables/Ranking"
-
+import AnotherCard from "./reusables/AnotherCard"
 const list = [
     { name: "ikaw", value: "69" },
     { name: "adobo", value: "55" },
@@ -19,19 +19,8 @@ class Weekly extends React.Component {
                     <div className="row-span-4 col-span-3 bg-sidebar-accent rounded-[10px] border-gray">
                         <Graph />
                     </div>
-                    <div className="grid gap-[10px] col-span-1 row-span-2">
-                        <Card
-                            title="Total lunch claimed"
-                            percentage="95%"
-                            studentCount="100"
-                        />
-                    </div>
-                    <div className="grid gap-[10px] col-span-1 row-span-2">
-                        <Card
-                            title="Total lunch claimed"
-                            percentage="95%"
-                            studentCount="100"
-                        />
+                    <div className="grid gap-[10px] col-span-2 row-span-2">
+                        <AnotherCard />
                     </div>
                     <div className="w-full col-span-2 row-span-2">
                         <Ranking list={list} />
