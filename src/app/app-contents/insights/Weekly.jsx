@@ -11,33 +11,30 @@ const list = [
 ]
 
 
-class Daily extends React.Component {
+class Weekly extends React.Component {
     render() {
         return (
             <>
-                <div className="grid grid-cols-5 grid-rows-auto gap-[20px] font-roboto">
-                <div className="grid gap-[10px] col-span-3">
-                    <div className="flex">
+                <div className="grid grid-cols-5 grid-rows-4 gap-[20px] font-roboto h-[490px]">
+                    <div className="row-span-4 col-span-3 bg-sidebar-accent rounded-[10px] border-gray">
+                        <Graph />
+                    </div>
+                    <div className="grid gap-[10px] col-span-1 row-span-2">
                         <Card
                             title="Total lunch claimed"
                             percentage="95%"
                             studentCount="100"
-                            height="110px"
                         />
-                        <Card 
-                            title="Total lunch unclaimed"
-                            percentage="5%"
+                    </div>
+                    <div className="grid gap-[10px] col-span-1 row-span-2">
+                        <Card
+                            title="Total lunch claimed"
+                            percentage="95%"
                             studentCount="100"
-                            height="110px"
                         />
                     </div>
-                        
-                    </div>
-                    <div className="row-span-3 col-span-2">
-                        <Ranking list={list}/>
-                    </div>
-                    <div className="w-full h-[500px] col-span-3 bg-sidebar-accent rounded-m">
-                        <Graph />
+                    <div className="w-full col-span-2 row-span-2">
+                        <Ranking list={list} />
                     </div>
                 </div>
             </>
@@ -45,4 +42,4 @@ class Daily extends React.Component {
     }
 }
 
-export default Daily
+export default Weekly

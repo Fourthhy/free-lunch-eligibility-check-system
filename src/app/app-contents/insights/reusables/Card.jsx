@@ -1,8 +1,8 @@
 const Card = ({title, percentage, studentCount, height}) => {
     return (
         <>
-            <div className={`w-full h-${height ? height : "full"} rounded-[10px] bg-sidebar-accent m-[5px] border-gray border-[1px]`}>
-                <div className="px-[20px] pt-[5px] text-[20px]"> {/*TITLE*/}
+            <div className={`w-full h-${height ? height : "full"} rounded-[10px] bg-sidebar-accent border-gray border-[1px]`}>
+                <div className="text-center py-[5px] text-[20px]"> {/*TITLE*/}
                     { title }
                 </div>
 
