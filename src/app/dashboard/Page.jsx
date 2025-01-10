@@ -15,7 +15,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { useSidebar } from "@/components/ui/sidebar"; // Adjust the import path accordingly
 
 export default function Page() {
   const [active, setActive] = useState(true);
@@ -25,12 +24,15 @@ export default function Page() {
   const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   useEffect(() => {
+    
     function handleBreadcrumb() {
       let list = [];
 
       switch (pathname) {
         case 'adminPageinsight':
+          list = [{ parent: "insights", child: "Daily" }];
         case 'adminPageinsightsdaily':
+          setActive(!active)
           list = [{ parent: "insights", child: "Daily" }];
           break;
         case 'adminPageinsightsweekly':
@@ -75,7 +77,7 @@ export default function Page() {
 
       <div>
         <SidebarProvider>
-          <AppSidebar />
+          {active ? <AppSidebar /> : ''}
           <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2">
               <div className="flex items-center gap-2 px-4">
@@ -102,7 +104,7 @@ export default function Page() {
                         <BreadcrumbSeparator />
                         {item.child && (
                           <BreadcrumbItem className="hidden md:block">
-                            {item.child}
+                            {item.child} 
                           </BreadcrumbItem>
                         )}
                       </React.Fragment>
