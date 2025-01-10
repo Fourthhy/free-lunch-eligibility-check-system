@@ -1,3 +1,4 @@
+import * as React from "react"
 import { AppSidebar } from "@/components/app-sidebar";
 import HeaderBar from "@/components/reusableComponents/HeaderBar";
 import { Outlet, useLocation } from "react-router-dom";
@@ -49,8 +50,9 @@ export default function Page() {
       case 'adminPageoperation':
         list = [{ parent: "Daily Operation"}];
         break;
-
-
+      case 'adminPagechangePassword':
+        list = [{parent: "Change Password"}];
+        break;
       default:
         list = []; // Default case if no match
     }
@@ -71,12 +73,16 @@ export default function Page() {
           <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2">
               <div className="flex items-center gap-2 px-4">
-                <SidebarTrigger className="-ml-1" />
-                <Separator orientation="vertical" className="mr-2 h-4" />
+
+                <div className="flex items-center">
+                  <SidebarTrigger className="-ml-1" />
+                  <Separator orientation="vertical" className="mr-2 h-4" />
+                </div>
 
                 {/* BREADCRUMB FOR NAV, DO NOT TOUCH IT!! */}
                 <Breadcrumb>
                   <BreadcrumbList>
+
                     <BreadcrumbItem className="hidden md:block">
                       Admin Dashboard
                     </BreadcrumbItem>

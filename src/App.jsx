@@ -11,7 +11,7 @@ import BSISstudents from "./app/app-contents/Masterlist/BSISstudents";
 import ACTstudents from "./app/app-contents/Masterlist/ACTstudents"
 import Schedule from "./app/app-contents/Schedule";
 import DailyOperation from "./app/app-contents/DailyOperation";
-
+import ChangePassowrd from "./app/app-contents/ChangePassword";
 
 function App() {
 
@@ -29,9 +29,10 @@ function App() {
               <Route path="/adminPage/insights/weekly" element={<Weekly />} />
               <Route path="/adminPage/insights/monthly" element={<Monthly />} />
               <Route path="/adminPage/insights/semestral" element={<Semestral />} />
-            <Route path="/adminPage/schedule" element={<Schedule />} />
+              <Route path="/adminPage/schedule" element={<Schedule />} />
               <Route path="/adminPage/masterlist/ACT-students" element={<ACTstudents />} />
               <Route path="/adminPage/masterlist/BSIS-students" element={<BSISstudents />} />
+              <Route path="/adminPage/changePassword" element={<ChangePassowrd />} />
             <Route path="/adminPage/operation" element={<DailyOperation />} />
           </Route>
         </Routes>

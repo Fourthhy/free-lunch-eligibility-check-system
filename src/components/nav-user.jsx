@@ -64,7 +64,7 @@ export function NavUser({ user }) {
             align="end"
             sideOffset={4}
           >
-            <Link to="/admin">
+            <Link to="/adminPage/changePassword">
               <DropdownMenuItem>
                 <div className="cursor-pointer flex items-center">
                   <div className="mr-[10px]">
