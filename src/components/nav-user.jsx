@@ -30,11 +30,12 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar"
 
 export function NavUser({ user }) {
-  const { isMobile } = useSidebar()
+  const { isMobile, toggleSidebar } = useSidebar()
 
   return (
     <SidebarMenu>
@@ -64,8 +65,8 @@ export function NavUser({ user }) {
             align="end"
             sideOffset={4}
           >
-            <Link to="/admin">
-              <DropdownMenuItem>
+            <Link to="/adminPage/changePassword">
+              <DropdownMenuItem onClick={toggleSidebar}>
                 <div className="cursor-pointer flex items-center">
                   <div className="mr-[10px]">
                     <Lock />
