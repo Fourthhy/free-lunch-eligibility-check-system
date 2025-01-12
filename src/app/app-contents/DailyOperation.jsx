@@ -99,52 +99,53 @@ export default function DailyOperation() {
         ]
     });
 
-    const [editRowIndex, setEditRowIndex] = useState(null);
-    const [editedData, setEditedData] = useState(studentData.monday); // Default to Monday
-
-    const handleEditClick = (index) => {
-        setEditRowIndex(index);
-    };
-
-    const handleChange = (e, index, field) => {
-        const updatedData = [...editedData];
-        updatedData[index][field] = e.target.value;
-        setEditedData(updatedData);
-    };
-
-    const handleSave = () => {
-        setEditRowIndex(null);
-    };
-
-    const handleAddRow = () => {
-        const newRow = {
-            name: '',
-            studentID: '',
-            courseAndYear: '',
-            mealStatus: false,
-        };
-        setEditedData([...editedData, newRow]);
-    };
-
     const StudentList = () => {
+
+
+        const [editRowIndex, setEditRowIndex] = useState(null);
+        const [editedData, setEditedData] = useState(studentData.monday); // Default to Monday
+
+        const handleEditClick = (index) => {
+            setEditRowIndex(index);
+        };
+
+        const handleChange = (e, index, field) => {
+            const updatedData = [...editedData];
+            updatedData[index][field] = e.target.value;
+            setEditedData(updatedData);
+        };
+
+        const handleSave = () => {
+            setEditRowIndex(null);
+        };
+
+        const handleAddRow = () => {
+            const newRow = {
+                name: '',
+                studentID: '',
+                courseAndYear: '',
+                mealStatus: false,
+            };
+            setEditedData([...editedData, newRow]);
+        };
         return (
-            <div className="overflow-y-auto max-h-[400px]">
+            <div className="overflow-y-auto max-h-[60vh]">
                 {/* Custom sticky header outside of the Table */}
-                <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex h-12 px-4 text-center align-middle font-medium ">
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Name</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">ID Number</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Course & Year</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Meal Status</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Edit</div>
+                <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex h-12 text-center align-middle font-medium ">
+                    <div className="flex-1  p-4 text-center align-middle">Name</div>
+                    <div className="flex-1  p-4 text-center align-middle">ID Number</div>
+                    <div className="flex-1  p-4 text-center align-middle">Course and Year</div>
+                    <div className="flex-1  p-4 text-center align-middle">Meal Status</div>
+                    <div className="flex-none w-[8em]  p-4 text-center align-middle">Edit</div>
                 </div>
 
                 {/* Table body with TableRow and TableCell */}
                 <Table className="relative">
                     <TableCaption>Students Masterlist</TableCaption>
-                    <TableBody>
+                    <TableBody className="flex flex-col justify-around items-center">
                         {editedData.map((data, index) => (
-                            <TableRow key={index}>
-                                <TableCell className="w-1/5">
+                            <TableRow key={index} className="w-full flex flex-1">
+                                <TableCell className="flex-1">
                                     {editRowIndex === index ? (
                                         <Input
                                             type="text"
@@ -156,7 +157,7 @@ export default function DailyOperation() {
                                         data.name
                                     )}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell className="flex-1">
                                     {editRowIndex === index ? (
                                         <Input
                                             type="text"
@@ -168,7 +169,7 @@ export default function DailyOperation() {
                                         data.studentID
                                     )}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell className="flex-1">
                                     {editRowIndex === index ? (
                                         <Input
                                             type="text"
@@ -180,7 +181,7 @@ export default function DailyOperation() {
                                         data.courseAndYear
                                     )}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell className="flex-1">
                                     {editRowIndex === index ? (
                                         <select
                                             value={data.mealStatus}
@@ -194,7 +195,7 @@ export default function DailyOperation() {
                                         <Badge status={data.mealStatus} />
                                     )}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell className="w-[8em] flex justify-center items-center flex-none ">
                                     {editRowIndex === index ? (
                                         <button onClick={handleSave} className="text-green-500">
                                             Save
