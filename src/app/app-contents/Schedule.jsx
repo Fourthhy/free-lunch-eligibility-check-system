@@ -20,7 +20,7 @@ export default function Schedule() {
                 wednesday: true,
                 thursday: true,
                 friday: true,
-                saturday:true
+                saturday: true
             }
         },
         {
@@ -31,7 +31,7 @@ export default function Schedule() {
                 wednesday: true,
                 thursday: false,
                 friday: true,
-                saturday:true
+                saturday: true
             }
         },
         {
@@ -42,7 +42,7 @@ export default function Schedule() {
                 wednesday: false,
                 thursday: true,
                 friday: false,
-                saturday:true
+                saturday: true
             }
         },
         {
@@ -53,7 +53,7 @@ export default function Schedule() {
                 wednesday: true,
                 thursday: true,
                 friday: true,
-                saturday:true
+                saturday: true
             }
         },
         {
@@ -64,7 +64,7 @@ export default function Schedule() {
                 wednesday: true,
                 thursday: false,
                 friday: true,
-                saturday:true
+                saturday: true
             }
         },
         {
@@ -75,7 +75,7 @@ export default function Schedule() {
                 wednesday: false,
                 thursday: true,
                 friday: false,
-                saturday:false
+                saturday: false
 
             }
         }
@@ -133,25 +133,25 @@ export default function Schedule() {
     );
 
     return (
-        <div className="overflow-y-auto max-h-[85%]">
+        <div className="overflow-y-auto max-h-[70vh]">
             {/* Custom sticky header outside of the Table */}
             <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex h-12 text-center align-middle font-medium ">
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Course</div>
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Monday</div>
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Tuesday</div>
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Wednesday</div>
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Thursday</div>
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Friday</div>
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Saturday</div>
-                <div className="flex-1 w-1/12  p-4 text-center align-middle">Actions</div>
+                <div className="flex-1   p-4 text-center align-middle">Course</div>
+                <div className="flex-1   p-4 text-center align-middle">Monday</div>
+                <div className="flex-1   p-4 text-center align-middle">Tuesday</div>
+                <div className="flex-1   p-4 text-center align-middle">Wednesday</div>
+                <div className="flex-1   p-4 text-center align-middle">Thursday</div>
+                <div className="flex-1   p-4 text-center align-middle">Friday</div>
+                <div className="flex-1   p-4 text-center align-middle">Saturday</div>
+                <div className="flex-none w-[8em] p-4 text-center align-middle">Actions</div>
             </div>
 
             <Table className="relative">
                 <TableCaption>Weekly Course Meal Schedule</TableCaption>
-                <TableBody>
+                <TableBody className="flex flex-col justify-around items-center">
                     {schedule.map((scheduleItem, index) => (
-                        <TableRow key={index}>
-                            <TableCell className="w-1/12 ">
+                        <TableRow key={index} className="w-full flex flex-1">
+                            <TableCell className="flex-1  ">
                                 {editRowIndex === index ? (
                                     <input
                                         type="text"
@@ -164,7 +164,7 @@ export default function Schedule() {
                                 )}
                             </TableCell>
                             {Object.keys(scheduleItem.days).map(day => (
-                                <TableCell key={day} className="w-1/12 flex-0 ">
+                                <TableCell key={day} className="flex-1 ">
                                     {editRowIndex === index ? (
                                         <select
                                             value={tempSchedule[index].days[day]}
@@ -179,15 +179,15 @@ export default function Schedule() {
                                     )}
                                 </TableCell>
                             ))}
-                            <TableCell className="w-1/12 flex-0 ">
+                            <TableCell className="w-[8em] flex justify-center items-center flex-none ">
                                 {editRowIndex === index ? (
                                     <button onClick={handleSave} className="text-green-500">
                                         Save
                                     </button>
                                 ) : (
-                                    <div className='flex justify-center items-center gap-[0px]'>
-                                        <Pencil size={18} onClick={() => handleEditClick(index)} className="w-full  cursor-pointer m-auto cursor-pointer" />
-                                        <Trash size={18} onClick={() => handleDelete(index)} className="w-full  cursor-pointer text-red-500 ml-2" />
+                                    <div className='flex justify-center items-center gap-5'>
+                                        <Pencil size={18} onClick={() => handleEditClick(index)} className="cursor-pointer" />
+                                        <Trash size={18} onClick={() => handleDelete(index)} className="text-red-500 cursor-pointer" />
                                     </div>
                                 )}
                             </TableCell>
