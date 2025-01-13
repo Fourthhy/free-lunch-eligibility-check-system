@@ -97,7 +97,7 @@ export default function Schedule() {
 
     const handleCourseChange = (e, index) => {
         const updatedSchedule = [...tempSchedule];
-        updatedSchedule[index].course = e.target.value;
+        updatedSchedule[index].course = e.target.value.toUpperCase();
         setTempSchedule(updatedSchedule);
     };
 
@@ -113,14 +113,14 @@ export default function Schedule() {
 
     const handleAddRow = () => {
         const newSchedule = {
-            course: "New Course",
+            course: "BS",
             days: {
-                monday: false,
-                tuesday: false,
-                wednesday: false,
-                thursday: false,
-                friday: false,
-                saturday: false
+                monday: true,
+                tuesday: true,
+                wednesday: true,
+                thursday: true,
+                friday: true,
+                saturday: true
             }
         };
         setSchedule([...schedule, newSchedule]);
@@ -135,8 +135,8 @@ export default function Schedule() {
     return (
         <div className="overflow-y-auto max-h-[70vh]">
             {/* Custom sticky header outside of the Table */}
-            <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex h-12 text-center align-middle font-medium overflow-x-hidden ">
-                <div className="flex-1   p-4 text-center align-middle">Course</div>
+            <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex justify-center items-center h-12 text-center align-middle font-medium ">
+                <div className="flex-none w-[8em]   p-4 text-center align-middle">Course</div>
                 <div className="flex-1   p-4 text-center align-middle">Monday</div>
                 <div className="flex-1   p-4 text-center align-middle">Tuesday</div>
                 <div className="flex-1   p-4 text-center align-middle">Wednesday</div>
@@ -151,13 +151,13 @@ export default function Schedule() {
                 <TableBody className="flex flex-col justify-around items-center">
                     {schedule.map((scheduleItem, index) => (
                         <TableRow key={index} className="w-full flex flex-1">
-                            <TableCell className="flex-1  ">
+                            <TableCell className="w-[8em] flex-none  ">
                                 {editRowIndex === index ? (
                                     <input
                                         type="text"
                                         value={tempSchedule[index].course}
                                         onChange={(e) => handleCourseChange(e, index)}
-                                        className="max-w-[6em] border px-2 py-1 rounded"
+                                        className="overflow-x-hidden max-w-[5em] border px-2 py-1 rounded"
                                     />
                                 ) : (
                                     scheduleItem.course
@@ -181,7 +181,7 @@ export default function Schedule() {
                             ))}
                             <TableCell className="w-[8em] flex justify-center items-center flex-none ">
                                 {editRowIndex === index ? (
-                                    <button onClick={handleSave} className="text-green-500">
+                                    <button onClick={handleSave} className="px-2 py-1 text-center align-middle text-green-500">
                                         Save
                                     </button>
                                 ) : (

@@ -25,6 +25,17 @@ export default function ChangePassword() {
         )
     }
 
+    const ConfirmNewPassword = () => {
+        return (
+            <div className="w-full">
+                <Label className="ml-[10px] focus:outline-none">
+                    Confirm Password
+                </Label>
+                <Input type="password" className="focus:outline-none" />
+            </div>
+        )
+    }
+
     const SubmitButton = () => {
         return (
             <div className="w-full">
@@ -39,10 +50,11 @@ export default function ChangePassword() {
         <>
             <div className="h-[490px] w-full flex justify-center items-center">
                 <div className="bg-sidebar-accent w-[320px] h-[340px] rounded-[10px] mb-[100px] flex items-center justify-center"> {/*GRAY AREA*/}
-                    <div className="bg-white w-[250px] h-[270px] rounded-[5px] flex justify-center"> {/*FORM AREA*/}
-                        <div className="w-[220px] h-full flex flex-col justify-center items-center gap-[20px] border-1px border-black"> {/*SIZE WIDTH*/}
+                    <div className="bg-white w-[250px] h-[290px] rounded-[5px] flex justify-center"> {/*FORM AREA*/}
+                        <div className="w-[220px] h-full flex flex-col justify-center items-center gap-[5px] border-1px border-black"> {/*SIZE WIDTH*/}
                             <EnterOldPassword />
                             <EnterNewPassword />
+                            <ConfirmNewPassword />
                             <SubmitButton />
                         </div>
                     </div>

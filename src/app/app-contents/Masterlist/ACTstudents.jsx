@@ -47,19 +47,21 @@ export default function MasterlistV3() {
             setEditRowIndex({ year, index });
             setTempStudentData({
                 ...tempStudentData,
-                [year]: [...studentData[year]] 
+                [year]: [...studentData[year]]
             });
         };
 
         const handleChange = (e, year, index, field) => {
             const updatedData = { ...tempStudentData };
-            updatedData[year][index][field] = e.target.value;
+            updatedData[year][index][field] = e.target.value.split(' ') 
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) 
+                .join(' '); 
             setTempStudentData(updatedData);
         };
 
         const handleSave = () => {
-            setStudentData(tempStudentData); 
-            setEditRowIndex(null); 
+            setStudentData(tempStudentData);
+            setEditRowIndex(null);
         };
 
         const handleDelete = (year, index) => {
