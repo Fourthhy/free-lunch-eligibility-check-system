@@ -8,6 +8,13 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 import { Pencil, Trash } from 'lucide-react';
 
 export default function Schedule() {
@@ -175,7 +182,19 @@ export default function Schedule() {
                                             <option value={false}>Not Eligible</option>
                                         </select>
                                     ) : (
-                                        <Badge status={scheduleItem.days[day]} />
+                                        <>
+                                            <TooltipProvider className="w-full flex justify-center items-center flex-1">
+                                                <Tooltip className="w-full flex justify-center items-center flex-1">
+                                                    <TooltipTrigger className="w-full flex justify-center items-center flex-1">  <Badge status={scheduleItem.days[day]} /></TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p>{scheduleItem.days[day] ? 'Eligible' : 'Ineligible'}</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+
+                                        </>
+
+
                                     )}
                                 </TableCell>
                             ))}
