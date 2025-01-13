@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/sidebar";
 
 export default function Page() {
-  const [active, setActive] = useState(true);
   const location = useLocation();
   const pathname = location.pathname.split('/').filter(x => x).join('');
 
@@ -32,7 +31,6 @@ export default function Page() {
         case 'adminPageinsight':
           list = [{ parent: "insights", child: "Daily" }];
         case 'adminPageinsightsdaily':
-          if (!active) {setActive(!active)}
           list = [{ parent: "insights", child: "Daily" }];
           break;
         case 'adminPageinsightsweekly':
@@ -57,7 +55,6 @@ export default function Page() {
           list = [{ parent: "Daily Operation" }];
           break;
         case 'adminPagechangePassword':
-          setActive(false); // Update state without causing re-render loop
           list = [{ parent: "Change Password" }];
           break;
         default:
@@ -77,15 +74,13 @@ export default function Page() {
 
       <div>
         <SidebarProvider>
-          {active ? <AppSidebar /> : ''}
+        <AppSidebar />
           <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2">
               <div className="flex items-center gap-2 px-4">
 
-                <div className={active ? `flex items-center gap-2` : `hidden`}>
                   <SidebarTrigger className="-ml-1" />
                   <Separator orientation="vertical" className="mr-2 h-4" />
-                </div>
 
                 {/* BREADCRUMB FOR NAV, DO NOT TOUCH IT!! */}
                 <Breadcrumb>
