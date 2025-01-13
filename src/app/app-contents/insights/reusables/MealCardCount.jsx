@@ -10,13 +10,15 @@ import {
 const DailyCard = () => {
     return (
         <Card className="bg-sidebar-accent h-full">
-            <CardHeader>
-                <CardTitle> 400 </CardTitle>
-                <CardDescription> Students claimed their meals </CardDescription>
-            </CardHeader>
-            <CardContent>
-                <CardTitle> 100 </CardTitle>
-                <CardDescription> remaining </CardDescription>
+            <CardContent className="flex flex-col my-[20px] justify-center gap-[10px]">
+                <div>
+                    <CardTitle> 400 </CardTitle>
+                    <CardDescription> meals claimed </CardDescription>
+                </div>
+                <div>
+                    <CardTitle> 100 </CardTitle>
+                    <CardDescription> remaining </CardDescription>
+                </div>
             </CardContent>
         </Card>
     )

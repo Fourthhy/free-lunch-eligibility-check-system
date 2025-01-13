@@ -13,13 +13,14 @@ const MealInput = () => {
         <Card className="bg-sidebar-accent h-full">
             <CardHeader>
                 <CardTitle> Today's meal </CardTitle>
-                <CardDescription> Input Below </CardDescription>
             </CardHeader>
-            <div className="w-[90%]">
-                <div className="ml-[10px] focus:outline-none">
+            <CardContent>
+            <div className="w-full">
+                <div className="focus:outline-none">
                     <Input type="text"/>
                 </div>
             </div>
+            </CardContent>
         </Card>
     )
 }
