@@ -160,7 +160,7 @@ export default function Schedule() {
         <div className="overflow-y-auto max-h-[70vh] ">
             {/* Custom sticky header outside of the Table */}
             <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex justify-center items-center h-12 text-center align-middle font-medium ">
-                <div className="flex-none max-w-[8em] w-min   p-4 text-center align-middle">Course</div>
+                <div className="flex-1   p-4 text-center align-middle">Course</div>
                 <div className="flex-1   p-4 text-center align-middle">Monday</div>
                 <div className="flex-1   p-4 text-center align-middle">Tuesday</div>
                 <div className="flex-1   p-4 text-center align-middle">Wednesday</div>
@@ -175,20 +175,20 @@ export default function Schedule() {
                 <TableBody className="flex flex-col justify-around items-center">
                     {schedule.map((scheduleItem, index) => (
                         <TableRow key={index} className="w-full flex flex-1">
-                            <TableCell className="text-nowrap max-w-[8em] w-min flex-none  ">
+                            <TableCell className="text-nowrap flex-1  ">
                                 {editRowIndex === index ? (
                                     <input
                                         type="text"
                                         value={tempSchedule[index].course}
                                         onChange={(e) => handleCourseChange(e, index)}
-                                        className="overflow-x-hidden max-w-[5em] border px-2 py-1 rounded"
+                                        className="border px-2 py-1 rounded"
                                     />
                                 ) : (
                                     scheduleItem.course
                                 )}
                             </TableCell>
                             {Object.keys(scheduleItem.days).map(day => (
-                                <TableCell key={day} className="flex-1 flex justify-start items-center">
+                                <TableCell key={day} className="flex-1 flex justify-center items-center">
                                     {editRowIndex === index ? (
                                         <select
                                             value={tempSchedule[index].days[day]}
