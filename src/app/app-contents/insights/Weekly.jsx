@@ -1,15 +1,7 @@
 import React from 'react';
 import Graph from "./reusables/Graph"
-import Card from "./reusables/Card"
-import Ranking from "./reusables/Ranking"
+import NewRanking from "./reusables/NewRanking"
 import AnotherCard from "./reusables/AnotherCard"
-const list = [
-    { name: "ikaw", value: "69" },
-    { name: "adobo", value: "55" },
-    { name: "calederata", value: "50" },
-    { name: "monggo", value: "10" },
-]
-
 
 class Weekly extends React.Component {
     render() {
@@ -23,7 +15,7 @@ class Weekly extends React.Component {
                         <AnotherCard />
                     </div>
                     <div className="w-full col-span-2 row-span-2">
-                        <Ranking list={list} />
+                        <NewRanking />
                     </div>
                 </div>
             </>
