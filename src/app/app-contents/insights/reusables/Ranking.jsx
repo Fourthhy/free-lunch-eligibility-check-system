@@ -5,13 +5,13 @@ export default function Ranking({list}) {
     return (
         <>
             <div className="w-full h-full rounded-[10px] bg-sidebar-accent font-roboto border-gray border-[1px]">
-                <div className="text-[20px] px-[20px] py-[4px]"> {/*TITLE*/}
+                <div className="text-[20px] px-[20px] py-[6px]"> {/*TITLE*/}
                     Ranking
                 </div>
-                <hr />
-                <div className="text-center text-gray-500"> {/*DESCRIPTION*/}
+                {/* <hr />
+                <div className="text-center text-gray-500"> 
                     This analysis is based on 4,500 students who claimed free lunch of BSIS and ACT students from the higher education department
-                </div>
+                </div> */}
 
                 <div> {/*RANKING LIST*/}
                     {
