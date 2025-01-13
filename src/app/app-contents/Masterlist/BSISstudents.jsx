@@ -1,26 +1,11 @@
-import { Pencil, Trash} from 'lucide-react';
-import { useState } from 'react';
-import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableRow,
-} from "@/components/ui/table";
+import React, { useState } from 'react';
+import { Table, TableBody, TableCaption, TableCell, TableRow } from "@/components/ui/table";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import { Input } from '@/components/ui/input';
+import { Pencil, Trash } from 'lucide-react';
 
 export default function MasterlistV3() {
-    const Badge = ({ status }) => {
-        return (
-            <span className={`w-full h-4 flex items-center justify-center px-2 py-1 rounded-[10px] text-white 
-                            ${status ? 'bg-[#60A577]' : 'bg-[#E3212E90]'}`} />
-        );
-    };
-
-
     const [studentData, setStudentData] = useState({
         firstYear: [
             { name: "Miguel Mañabo", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
@@ -78,83 +63,90 @@ export default function MasterlistV3() {
         ]
     });
 
-    const [editRowIndex, setEditRowIndex] = useState(null);
-    const [editedData, setEditedData] = useState(studentData.firstYear); // Default to Monday
+    const StudentList = ({ yearData, year }) => {
 
-    const handleEditClick = (index) => {
-        setEditRowIndex(index);
-    };
 
-    const handleChange = (e, index, field) => {
-        const updatedData = [...editedData];
-        updatedData[index][field] = e.target.value;
-        setEditedData(updatedData);
-    };
+        const [editRowIndex, setEditRowIndex] = useState(null);
+        const [tempStudentData, setTempStudentData] = useState({ ...studentData });
 
-    const handleSave = () => {
-        setEditRowIndex(null);
-    };
-
-    const handleAddRow = () => {
-        const newRow = {
-            name: '',
-            studentID: '',
-            courseAndYear: '',
-            mealStatus: false,
+        const handleEditClick = (year, index) => {
+            setEditRowIndex({ year, index });
+            setTempStudentData({
+                ...tempStudentData,
+                [year]: [...studentData[year]] 
+            });
         };
-        setEditedData([...editedData, newRow]);
-    };
 
-    const StudentList = () => {
-        return (
-            <div className="overflow-y-auto max-h-[400px]">
+        const handleChange = (e, year, index, field) => {
+            const updatedData = { ...tempStudentData };
+            updatedData[year][index][field] = e.target.value;
+            setTempStudentData(updatedData);
+        };
+
+        const handleSave = () => {
+            setStudentData(tempStudentData); 
+            setEditRowIndex(null); 
+        };
+
+        const handleDelete = (year, index) => {
+            const updatedData = { ...studentData };
+            updatedData[year].splice(index, 1);
+            setStudentData(updatedData);
+        };
+
+        const handleAddRow = (year) => {
+            const newRow = { name: "New Student", studentID: "0000000000000" };
+            const updatedData = { ...studentData };
+            updatedData[year].push(newRow);
+            setStudentData(updatedData);
+        };
+        return (<>
+            <div className="overflow-y-auto max-h-[60vh]">
                 {/* Custom sticky header outside of the Table */}
-                <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex h-12 px-4 text-center align-middle font-medium ">
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Name</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">ID Number</div>
-                    <div className="flex-1 w-1/5 p-2 text-center align-middle">Actions</div>
+                <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex items-center h-12 text-center align-middle font-medium ">
+                    <div className="flex-1   p-4 text-center align-middle">Name</div>
+                    <div className="flex-1   p-4 text-center align-middle">ID Number</div>
+                    <div className="flex-none w-[8em]   p-4 text-center align-middle">Actions</div>
                 </div>
-
-                {/* Table body with TableRow and TableCell */}
-                <Table className="relative">
-                    <TableCaption>Students Masterlist</TableCaption>
-                    <TableBody>
-                        {editedData.map((data, index) => (
-                            <TableRow key={index}>
-                                <TableCell className="w-1/5">
-                                    {editRowIndex === index ? (
-                                        <Input
+                <Table>
+                    <TableCaption>Masterlist of Students</TableCaption>
+                    <TableBody className="flex flex-col justify-around items-center">
+                        {yearData.map((row, index) => (
+                            <TableRow key={index} className="w-full flex flex-1">
+                                <TableCell className="flex-1  ">
+                                    {editRowIndex?.year === year && editRowIndex?.index === index ? (
+                                        <input
                                             type="text"
-                                            value={data.name}
-                                            onChange={(e) => handleChange(e, index, 'name')}
+                                            value={tempStudentData[year][index].name}
+                                            onChange={(e) => handleChange(e, year, index, 'name')}
                                             className="border px-2 py-1 rounded"
                                         />
                                     ) : (
-                                        data.name
+                                        row.name
                                     )}
                                 </TableCell>
-                                <TableCell className="w-1/5">
-                                    {editRowIndex === index ? (
-                                        <Input
+                                <TableCell className="flex-1  ">
+                                    {editRowIndex?.year === year && editRowIndex?.index === index ? (
+                                        <input
                                             type="text"
-                                            value={data.studentID}
-                                            onChange={(e) => handleChange(e, index, 'studentID')}
+                                            value={tempStudentData[year][index].studentID}
+                                            onChange={(e) => handleChange(e, year, index, 'studentID')}
                                             className="border px-2 py-1 rounded"
                                         />
                                     ) : (
-                                        data.studentID
+                                        row.studentID
                                     )}
                                 </TableCell>
 
-                                <TableCell className="w-1/5">
-                                    {editRowIndex === index ? (
+                                <TableCell className="w-[8em] flex justify-center items-center flex-none ">
+                                    {editRowIndex?.year === year && editRowIndex?.index === index ? (
                                         <button onClick={handleSave} className="text-green-500">
                                             Save
                                         </button>
                                     ) : (
-                                        <div className='flex justify-center items-center gap-[0px]'>
-                                            <Pencil size={18} onClick={() => handleEditClick(index)} className="w-full  cursor-pointer m-auto cursor-pointer" />
-                                            <Trash size={18} onClick={() => handleDelete(index)} className="w-full  cursor-pointer text-red-500 ml-2" />
+                                        <div className="flex justify-center gap-5">
+                                            <Pencil size={18} onClick={() => handleEditClick(year, index)} className="cursor-pointer" />
+                                            <Trash size={18} onClick={() => handleDelete(year, index)} className="text-red-500 cursor-pointer" />
                                         </div>
                                     )}
                                 </TableCell>
@@ -163,33 +155,37 @@ export default function MasterlistV3() {
                     </TableBody>
                 </Table>
 
-                {/* Button to add new row */}
-                <div className="flex justify-end mr-4 mt-4">
-                    <button
-                        onClick={handleAddRow}
-                        className="bg-[#1f3463] text-white px-4 py-2 rounded-lg"
-                    >
+                <div key={year} className="flex justify-end mr-4 mt-4">
+                    <button onClick={() => handleAddRow(year)} className="bg-[#1f3463] text-white px-4 py-2 rounded-lg">
                         Add Student
                     </button>
                 </div>
-            </div>
-        );
+            </div >
+        </>);
     };
 
     return (
-        <div className="tabs-wrapper w-full">
-            <Tabs defaultValue="firstYear" className="w-full">
-                <TabsList>
-                    <TabsTrigger value="firstYear" onClick={() => setEditedData(studentData.firstYear)}>1st Year</TabsTrigger>
-                    <TabsTrigger value="secondYear" onClick={() => setEditedData(studentData.secondYear)}>2nd Year</TabsTrigger>
-                    <TabsTrigger value="thirdYear" onClick={() => setEditedData(studentData.thirdYear)}>3rd Year</TabsTrigger>
-                    <TabsTrigger value="fourthYear" onClick={() => setEditedData(studentData.fourthYear)}>4th Year</TabsTrigger>
+        < div className="tabs-wrapper w-full" >
+            <Tabs className="w-full" defaultValue="firstYear">
+                <TabsList >
+                    <TabsTrigger value="firstYear">1st Year</TabsTrigger>
+                    <TabsTrigger value="secondYear">2nd Year</TabsTrigger>
+                    <TabsTrigger value="thirdYear">3rd Year</TabsTrigger>
+                    <TabsTrigger value="fourthYear">4th Year</TabsTrigger>
                 </TabsList>
-                <TabsContent value="firstYear"><StudentList /></TabsContent>
-                <TabsContent value="secondYear"><StudentList /></TabsContent>
-                <TabsContent value="thirdYear"><StudentList /></TabsContent>
-                <TabsContent value="fourthYear"><StudentList /></TabsContent>
+                <TabsContent value="firstYear">
+                    <StudentList yearData={studentData['firstYear']} year={'firstYear'} />
+                </TabsContent>
+                <TabsContent value="secondYear">
+                    <StudentList yearData={studentData['secondYear']} year={'secondYear'} />
+                </TabsContent>
+                <TabsContent value="thirdYear">
+                    <StudentList yearData={studentData['thirdYear']} year={'thirdYear'} />
+                </TabsContent>
+                <TabsContent value="fourthYear">
+                    <StudentList yearData={studentData['fourthYear']} year={'fourthYear'} />
+                </TabsContent>
             </Tabs>
-        </div>
+        </ div>
     );
 }
