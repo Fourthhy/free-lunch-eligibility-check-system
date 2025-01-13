@@ -32,8 +32,8 @@ export default class Example extends PureComponent {
                     <YAxis type="number" domain={['dataMin', 100]}/>
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="claimed" stackId="a" fill="#60A577" />
-                    <Bar dataKey="unclaimed" stackId="a" fill="#E3212E90" />
+                    <Bar dataKey="claimed" stackId="a" fill="#1F3463" />
+                    <Bar dataKey="unclaimed" stackId="a" fill="#3B82F6" /> 
                 </BarChart>
             </ResponsiveContainer>
         );

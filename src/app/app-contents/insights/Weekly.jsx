@@ -15,7 +15,7 @@ class Weekly extends React.Component {
     render() {
         return (
             <>
-                <div className="grid grid-cols-5 grid-rows-4 gap-[20px] font-roboto h-[490px]">
+                <div className="grid grid-cols-5 grid-rows-4 gap-[20px] font-roboto h-[calc(100vh-200px)]">
                     <div className="row-span-4 col-span-3 bg-sidebar-accent rounded-[10px] border-gray">
                         <Graph />
                     </div>
