@@ -143,14 +143,14 @@ export default function Schedule() {
         <div className="overflow-y-auto max-h-[70vh]">
             {/* Custom sticky header outside of the Table */}
             <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex justify-center items-center h-12 text-center align-middle font-medium ">
-                <div className="flex-none w-[8em]   p-4 text-center align-middle">Course</div>
+                <div className="flex-none max-w-[8em] w-min   p-4 text-center align-middle">Course</div>
                 <div className="flex-1   p-4 text-center align-middle">Monday</div>
                 <div className="flex-1   p-4 text-center align-middle">Tuesday</div>
                 <div className="flex-1   p-4 text-center align-middle">Wednesday</div>
                 <div className="flex-1   p-4 text-center align-middle">Thursday</div>
                 <div className="flex-1   p-4 text-center align-middle">Friday</div>
                 <div className="flex-1   p-4 text-center align-middle">Saturday</div>
-                <div className="flex-none w-[8em] p-4 text-center align-middle">Actions</div>
+                <div className="flex-none max-w-[8em] w-min p-4 text-center align-middle">Actions</div>
             </div>
 
             <Table className="relative">
@@ -158,7 +158,7 @@ export default function Schedule() {
                 <TableBody className="flex flex-col justify-around items-center">
                     {schedule.map((scheduleItem, index) => (
                         <TableRow key={index} className="w-full flex flex-1">
-                            <TableCell className="w-[8em] flex-none  ">
+                            <TableCell className="text-nowrap max-w-[8em] w-min flex-none  ">
                                 {editRowIndex === index ? (
                                     <input
                                         type="text"
@@ -198,7 +198,7 @@ export default function Schedule() {
                                     )}
                                 </TableCell>
                             ))}
-                            <TableCell className="w-[8em] flex justify-center items-center flex-none ">
+                            <TableCell className="max-w-[8em] w-min flex justify-center items-center flex-none ">
                                 {editRowIndex === index ? (
                                     <button onClick={handleSave} className="px-2 py-1 text-center align-middle text-green-500">
                                         Save
