@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 import { Table, TableBody, TableCaption, TableCell, TableRow } from "@/components/ui/table";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -148,20 +159,38 @@ export default function MasterlistV3() {
                                     ) : (
                                         <div className="flex justify-center gap-5">
                                             <Pencil size={18} onClick={() => handleEditClick(year, index)} className="cursor-pointer" />
-                                            <Trash size={18} onClick={() => handleDelete(year, index)} className="text-red-500 cursor-pointer" />
+
+                                            <AlertDialog variant='destructive'>
+                                                <AlertDialogTrigger> <Trash size={18} className="text-red-500 cursor-pointer" />
+                                                </AlertDialogTrigger>
+                                                <AlertDialogContent>
+                                                    <AlertDialogHeader>
+                                                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                                        <AlertDialogDescription>
+                                                            This action cannot be undone. This will permanently delete the selected record.
+                                                        </AlertDialogDescription>
+                                                    </AlertDialogHeader>
+                                                    <AlertDialogFooter>
+                                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                        <AlertDialogAction className="bg-red-500" onClick={() => handleDelete(year, index)}>Delete</AlertDialogAction>
+                                                    </AlertDialogFooter>
+                                                </AlertDialogContent>
+                                            </AlertDialog>
+
                                         </div>
                                     )}
                                 </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
+                    <div key={year} className="flex justify-end mr-4 mt-4">
+                        <button onClick={() => handleAddRow(year)} className="bg-[#1f3463] text-white px-4 py-2 rounded-lg">
+                            Add Student
+                        </button>
+                    </div>
                 </Table>
 
-                <div key={year} className="flex justify-end mr-4 mt-4">
-                    <button onClick={() => handleAddRow(year)} className="bg-[#1f3463] text-white px-4 py-2 rounded-lg">
-                        Add Student
-                    </button>
-                </div>
+
             </div >
         </>);
     };

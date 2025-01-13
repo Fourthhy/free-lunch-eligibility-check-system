@@ -1,6 +1,13 @@
 import { Pencil } from 'lucide-react';
 import { useState } from 'react';
 import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
+
+import {
     Table,
     TableBody,
     TableCaption,
@@ -14,107 +21,114 @@ import { Input } from '@/components/ui/input';
 
 export default function DailyOperation() {
     const Badge = ({ status }) => {
-        return (
-            <span className={`w-[75%] ml-[11%] h-4 flex items-center justify-center px-2 py-1 rounded-[10px] text-white 
-                            ${status ? 'bg-[#60A577]' : 'bg-[#E3212E90]'}`} />
-        );
+        switch (status) {
+            case 'claimed':
+                return <span className={`bg-[#A9A9A9] w-[60%] ml-[11%] h-4 flex items-center justify-center px-2 py-1 rounded-[10px] text-white `} />
+            case 'eligible':
+                return <span className={`bg-[#60A577] w-[60%] ml-[11%] h-4 flex items-center justify-center px-2 py-1 rounded-[10px] text-white `} />
+            case 'ineligible':
+                return <span className={`bg-[#E3212E90] w-[60%] ml-[11%] h-4 flex items-center justify-center px-2 py-1 rounded-[10px] text-white `} />
+
+            default:
+                return <h1>404 Not Found</h1>;
+        }
     };
 
     // Store data for each day
     const [studentData, setStudentData] = useState({
         monday: [
-            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true },
-            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }
+            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' },
+            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'claimed' },
+            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: 'claimed' },
+            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: 'claimed' },
+            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }
         ],
         tuesday: [
-            { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: true },
-            { name: "Mason Garcia", studentID: "1009385624798", courseAndYear: "BSIS-2", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }
+            { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: 'eligible' },
+            { name: "Mason Garcia", studentID: "1009385624798", courseAndYear: "BSIS-2", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }
         ],
         wednesday: [
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' },
+            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: 'ineligible' }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }
         ],
         thursday: [
-            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }
+            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }
         ],
         friday: [
-            { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: true },
-            { name: "Chloe Scott", studentID: "8127653094875", courseAndYear: "BSIS-3", mealStatus: false }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }
+            { name: "Sophia Green", studentID: "8472563925812", courseAndYear: "BSIS-3", mealStatus: 'eligible' },
+            { name: "Chloe Scott", studentID: "8127653094875", courseAndYear: "BSIS-3", mealStatus: 'ineligible' }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }
         ],
         saturday: [
-            { name: "Zoe Anderson", studentID: "3082645784093", courseAndYear: "BSIT-1", mealStatus: false },
-            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emily Martinez", studentID: "8496573124985", courseAndYear: "BSIT-4", mealStatus: false }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: false },
-            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: true },
-            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: false },
-            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: true }
+            { name: "Zoe Anderson", studentID: "3082645784093", courseAndYear: "BSIT-1", mealStatus: 'ineligible' },
+            { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Emily Martinez", studentID: "8496573124985", courseAndYear: "BSIT-4", mealStatus: 'ineligible' }, { name: "David Lee", studentID: "3638116184074", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Charlotte Hall", studentID: "3006254805019", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Isabella Young", studentID: "6083822831404", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Olivia Lewis", studentID: "1785924000172", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Chris Johnson", studentID: "6478382181262", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Jane Smith", studentID: "7374456913236", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Emani Poole", studentID: "1717265896386", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Isabella Young", studentID: "4770702994548", courseAndYear: "BSIS-4", mealStatus: 'ineligible' },
+            { name: "Olivia Lewis", studentID: "9205144578984", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "David Lee", studentID: "5186966412204", courseAndYear: "BSIS-4", mealStatus: 'eligible' },
+            { name: "Ava Walker", studentID: "5551234567890", courseAndYear: "BSIT-3", mealStatus: 'ineligible' },
+            { name: "Liam Clark", studentID: "2345678901234", courseAndYear: "BSIT-2", mealStatus: 'eligible' }
         ]
     });
 
@@ -205,7 +219,15 @@ export default function DailyOperation() {
                                     )}
                                 </TableCell>
                                 <TableCell className="flex justify-center items-center flex-1">
-                                    <Badge status={data.mealStatus} />
+                                    <TooltipProvider className="w-full flex justify-center items-center flex-1">
+                                        <Tooltip className="w-full flex justify-center items-center flex-1">
+                                            <TooltipTrigger className="w-full flex justify-center items-center flex-1"><Badge status={data.mealStatus} /></TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>{data.mealStatus.charAt(0).toUpperCase() + data.mealStatus.slice(1).toLowerCase()}</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+
                                 </TableCell>
                                 {/* <TableCell className="w-[8em] flex justify-center items-center flex-none ">
                                     {editRowIndex === index ? (
@@ -219,10 +241,8 @@ export default function DailyOperation() {
                             </TableRow>
                         ))}
                     </TableBody>
-                </Table>
-
-                {/* Button to add new row */}
-                {/* <div className="flex justify-end mr-4 mt-4">
+                    {/* Button to add new row */}
+                    {/* <div className="flex justify-end mr-4 mt-4">
                     <button
                         onClick={handleAddRow}
                         className="bg-[#1f3463] text-white px-4 py-2 rounded-lg"
@@ -230,6 +250,9 @@ export default function DailyOperation() {
                         Add Student
                     </button>
                 </div> */}
+                </Table>
+
+
             </div>
         );
     };
