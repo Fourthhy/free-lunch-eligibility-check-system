@@ -1,4 +1,17 @@
 import React, { useState } from 'react';
+import { useSidebar } from "@/components/ui/sidebar"; // Adjust the path as necessary
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 import {
     Table,
     TableBody,
@@ -90,8 +103,10 @@ export default function Schedule() {
 
     const [editRowIndex, setEditRowIndex] = useState(null);
     const [tempSchedule, setTempSchedule] = useState(schedule);
-
+    const { setOpen } = useSidebar();
     const handleEditClick = (index) => {
+
+        setOpen(false);
         setEditRowIndex(index);
         setTempSchedule(schedule);
     };
@@ -109,8 +124,10 @@ export default function Schedule() {
     };
 
     const handleSave = () => {
+
         setSchedule(tempSchedule);
         setEditRowIndex(null);
+        setOpen(true);
     };
 
     const handleDelete = (index) => {
@@ -140,10 +157,10 @@ export default function Schedule() {
     );
 
     return (
-        <div className="overflow-y-auto max-h-[70vh]">
+        <div className="overflow-y-auto max-h-[70vh] ">
             {/* Custom sticky header outside of the Table */}
-            <div className="sticky top-0 z-2 bg-[#1f3463] text-white flex justify-center items-center h-12 text-center align-middle font-medium ">
-                <div className="flex-none max-w-[8em] w-min   p-4 text-center align-middle">Course</div>
+            <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex justify-center items-center h-12 text-center align-middle font-medium ">
+                <div className="flex-1   p-4 text-center align-middle">Course</div>
                 <div className="flex-1   p-4 text-center align-middle">Monday</div>
                 <div className="flex-1   p-4 text-center align-middle">Tuesday</div>
                 <div className="flex-1   p-4 text-center align-middle">Wednesday</div>
@@ -158,25 +175,25 @@ export default function Schedule() {
                 <TableBody className="flex flex-col justify-around items-center">
                     {schedule.map((scheduleItem, index) => (
                         <TableRow key={index} className="w-full flex flex-1">
-                            <TableCell className="text-nowrap max-w-[8em] w-min flex-none  ">
+                            <TableCell className="text-nowrap flex-1  ">
                                 {editRowIndex === index ? (
                                     <input
                                         type="text"
                                         value={tempSchedule[index].course}
                                         onChange={(e) => handleCourseChange(e, index)}
-                                        className="overflow-x-hidden max-w-[5em] border px-2 py-1 rounded"
+                                        className="border px-2 py-1 rounded"
                                     />
                                 ) : (
                                     scheduleItem.course
                                 )}
                             </TableCell>
                             {Object.keys(scheduleItem.days).map(day => (
-                                <TableCell key={day} className="flex-1 ">
+                                <TableCell key={day} className="flex-1 flex justify-center items-center">
                                     {editRowIndex === index ? (
                                         <select
                                             value={tempSchedule[index].days[day]}
                                             onChange={(e) => handleChange(e, index, day)}
-                                            className="border px-2 py-1 rounded"
+                                            className="border px-0 py-1 rounded"
                                         >
                                             <option value={true}>Eligible</option>
                                             <option value={false}>Not Eligible</option>
@@ -206,24 +223,43 @@ export default function Schedule() {
                                 ) : (
                                     <div className='flex justify-center items-center gap-5 max-w-[4em]'>
                                         <Pencil size={18} onClick={() => handleEditClick(index)} className="cursor-pointer" />
-                                        <Trash size={18} onClick={() => handleDelete(index)} className="text-red-500 cursor-pointer" />
+
+                                        <AlertDialog variant='destructive'>
+                                            <AlertDialogTrigger> <Trash size={18} className="text-red-500 cursor-pointer" />
+                                            </AlertDialogTrigger>
+                                            <AlertDialogContent>
+                                                <AlertDialogHeader>
+                                                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                                    <AlertDialogDescription>
+                                                        This action cannot be undone. This will permanently delete the selected record.
+                                                    </AlertDialogDescription>
+                                                </AlertDialogHeader>
+                                                <AlertDialogFooter>
+                                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                    <AlertDialogAction className="bg-red-500" onClick={() => handleDelete(index)} >Delete</AlertDialogAction>
+                                                </AlertDialogFooter>
+                                            </AlertDialogContent>
+                                        </AlertDialog>
+
                                     </div>
                                 )}
                             </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
+                <div className="flex justify-end items-center mr-4 mt-4">
+                    <button
+                        onClick={handleAddRow}
+                        className="bg-[#1f3463] text-white px-4 py-2 rounded-lg "
+                    >
+                        Add Schedule
+                    </button>
+                </div>
             </Table>
 
+
             {/* Add Schedule Button */}
-            <div className="flex justify-end mr-4 mt-4">
-                <button
-                    onClick={handleAddRow}
-                    className="bg-[#1f3463] text-white px-4 py-2 rounded-lg"
-                >
-                    Add Schedule
-                </button>
-            </div>
+
         </div>
     );
 }

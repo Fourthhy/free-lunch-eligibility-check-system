@@ -241,10 +241,8 @@ export default function DailyOperation() {
                             </TableRow>
                         ))}
                     </TableBody>
-                </Table>
-
-                {/* Button to add new row */}
-                {/* <div className="flex justify-end mr-4 mt-4">
+                    {/* Button to add new row */}
+                    {/* <div className="flex justify-end mr-4 mt-4">
                     <button
                         onClick={handleAddRow}
                         className="bg-[#1f3463] text-white px-4 py-2 rounded-lg"
@@ -252,6 +250,9 @@ export default function DailyOperation() {
                         Add Student
                     </button>
                 </div> */}
+                </Table>
+
+
             </div>
         );
     };
