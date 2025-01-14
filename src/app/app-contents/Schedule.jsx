@@ -142,7 +142,7 @@ export default function Schedule() {
     return (
         <div className="overflow-y-auto max-h-[70vh]">
             {/* Custom sticky header outside of the Table */}
-            <div className="sticky top-0 z-10 bg-[#1f3463] text-white flex justify-center items-center h-12 text-center align-middle font-medium ">
+            <div className="sticky top-0 z-2 bg-[#1f3463] text-white flex justify-center items-center h-12 text-center align-middle font-medium ">
                 <div className="flex-none max-w-[8em] w-min   p-4 text-center align-middle">Course</div>
                 <div className="flex-1   p-4 text-center align-middle">Monday</div>
                 <div className="flex-1   p-4 text-center align-middle">Tuesday</div>
