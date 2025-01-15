@@ -15,16 +15,16 @@ export default class Example extends PureComponent {
 
     render() {
         return (
-            <ResponsiveContainer width="100%" height="75%">
+            <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                     data={data}
                     width={200} 
-                    height={300}
+                    height={200}
                     margin={{
                         top: 20,
                         right: 30,
                         left: 20,
-                        bottom: 5,
+                        bottom: 0,
                     }}
                 >
                     <CartesianGrid strokeDasharray="4 4" />
@@ -32,8 +32,8 @@ export default class Example extends PureComponent {
                     <YAxis type="number" domain={['dataMin', 100]}/>
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="claimed" stackId="a" fill="#60A577" />
-                    <Bar dataKey="unclaimed" stackId="a" fill="#E3212E90" />
+                    <Bar dataKey="claimed" stackId="a" fill="#1F3463" />
+                    <Bar dataKey="unclaimed" stackId="a" fill="#3B82F6" /> 
                 </BarChart>
             </ResponsiveContainer>
         );

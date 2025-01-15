@@ -2,7 +2,7 @@ import KStaffPage from "./components/KStaffPage";
 import LandingPage from "./components/LandingPage"
 import LoginPage from "./components/LoginPage";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
-import Page from "./app/dashboard/page";
+import Page from "./app/dashboard/Page";
 import Daily from "./app/app-contents/insights/Daily";
 import Weekly from "./app/app-contents/insights/Weekly";
 import Monthly from "./app/app-contents/insights/Monthly";
@@ -11,7 +11,7 @@ import BSISstudents from "./app/app-contents/Masterlist/BSISstudents";
 import ACTstudents from "./app/app-contents/Masterlist/ACTstudents"
 import Schedule from "./app/app-contents/Schedule";
 import DailyOperation from "./app/app-contents/DailyOperation";
-import ChangePassowrd from "./app/app-contents/ChangePassword";
+import ChangePassword from "./app/app-contents/ChangePassword";
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
               <Route path="/adminPage/schedule" element={<Schedule />} />
               <Route path="/adminPage/masterlist/ACT-students" element={<ACTstudents />} />
               <Route path="/adminPage/masterlist/BSIS-students" element={<BSISstudents />} />
-              <Route path="/adminPage/changePassword" element={<ChangePassowrd />} />
+              <Route path="/adminPage/changePassword" element={<ChangePassword />} />
             <Route path="/adminPage/operation" element={<DailyOperation />} />
           </Route>
         </Routes>

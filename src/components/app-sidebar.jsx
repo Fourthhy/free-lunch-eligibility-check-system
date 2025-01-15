@@ -99,7 +99,6 @@ export function AppSidebar({ ...props }) {
           <NavUser user={data.user} />
         </SidebarFooter>
       </div>
-      
     </Sidebar>
   )
 }
