@@ -4,7 +4,7 @@ function HeaderBar() {
             <div className="h-[110px] w-screen bg-[#1F3463] flex text-white">
                 <div className=" h-[100%] w-[50%] flex">
 
-                    <div className="h-[100%] flex flex-col items-center justify-center">
+                    <div className="h-[100%] flex flex-col items-center justify-center ml-[20px]">
                         <img src="/logo.svg" alt="" className="h-[100px] w-[100px] " />
                     </div>
 
