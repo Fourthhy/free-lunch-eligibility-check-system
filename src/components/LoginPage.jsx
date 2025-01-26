@@ -42,7 +42,7 @@ export default function LoginPage() {
                                         <input
                                             type="text"
                                             className="border-gray border-[1px] w-[280px] h-[40px] mt-[5px] rounded-[8px] pl-[10px]"
-                                            placeholder="Username" />
+                                            placeholder="Enter username" />
                                     </div>
                                     <div>
                                         <p className="pt-[5px] text-[#ff0000]">
@@ -63,7 +63,7 @@ export default function LoginPage() {
                                         <input
                                             type="password"
                                             className="border-gray border-[1px] w-[280px] h-[40px] mt-[5px] rounded-[8px] pl-[10px]"
-                                            placeholder="Password" />
+                                            placeholder="Enter password" />
                                     </div>
                                 </div>
 
