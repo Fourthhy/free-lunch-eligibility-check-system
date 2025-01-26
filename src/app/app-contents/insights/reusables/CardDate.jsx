@@ -11,11 +11,11 @@ const DailyCard = () => {
     return (
         <Card className="bg-sidebar-accent h-full">
             <CardHeader>
-                <CardTitle> Monday </CardTitle>
-                <CardDescription> September 11, 2001 </CardDescription>
+                <CardTitle> Wednesday </CardTitle>
+                <CardDescription> January 29, 2025 </CardDescription>
             </CardHeader>
             <CardFooter>
-            <CardDescription> Week 1 </CardDescription>
+            <CardDescription> Week 5 </CardDescription>
             </CardFooter>
         </Card>
     )

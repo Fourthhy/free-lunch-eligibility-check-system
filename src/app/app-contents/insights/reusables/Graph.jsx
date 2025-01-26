@@ -6,7 +6,7 @@ const data = [
     { name: 'BSIS 2', claimed: 43, unclaimed: 27, },
     { name: 'BSIS 3', claimed: 20, unclaimed: 50, },
     { name: 'BSIS 4', claimed: 36, unclaimed: 14, },
-    { name: 'ACT 4', claimed: 12, unclaimed: 18, },
+    { name: 'ACT 1', claimed: 12, unclaimed: 18, },
     { name: 'ACT 2', claimed: 46, unclaimed: 14, },
 ];
 

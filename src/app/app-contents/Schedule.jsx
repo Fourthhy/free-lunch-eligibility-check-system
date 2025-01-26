@@ -55,7 +55,7 @@ export default function Schedule() {
             }
         },
         {
-            course: "BSIS 1",
+            course: "BSIS-1",
             days: {
                 monday: false,
                 tuesday: true,
