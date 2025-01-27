@@ -19,9 +19,9 @@ import {
 
 const chartData = [
     { dish_name: "Caldereta", claimed: 150, mobile: 200 },
-    { dish_name: "Abobo", claimed: 105, mobile: 80 },
+    { dish_name: "Adobo", claimed: 105, mobile: 80 },
     { dish_name: "Monggo", claimed: 100, mobile: 120 },
-    { dish_name: "hatdog", claimed: 70, mobile: 130 },
+    { dish_name: "hotdog", claimed: 70, mobile: 130 },
 ]
 
 const chartConfig = {
