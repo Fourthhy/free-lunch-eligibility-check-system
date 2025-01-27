@@ -18,8 +18,8 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "#1F3463", count: 400 },
-  { browser: "safari", visitors: 200, fill: "#3B82F6", count: 100 },
+  { browser: "claimed", visitors: 400, fill: "#1F3463", count: 400 },
+  { browser: "unclaimed", visitors: 100, fill: "#3B82F6", count: 100 },
 ]
 
 const chartConfig = {
@@ -90,14 +90,14 @@ export default function AnotherCard() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {totalVisitors.toLocaleString()}
+                          {/* totalVisitors.toLocaleString() */} 400
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Meal Claimed
+                          Meals Claimed
                         </tspan>
                       </text>
                     )
