@@ -90,7 +90,7 @@ export default function AnotherCard() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {/* totalVisitors.toLocaleString() */} 400
+                          {totalVisitors.toLocaleString()}
                         </tspan>
                         <tspan
                           x={viewBox.cx}

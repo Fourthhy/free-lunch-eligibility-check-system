@@ -21,7 +21,7 @@ function LandingPage() {
                                 </p>
 
                                 <p className="text-[1rem] text-white font-roboto font-bold text-center pb-[40px]">
-                                    Designed to streamline the delivery of nutritious meals to students during their term in La Verdad Christian College. The system aims to improve student health and engagement by providing a reliable and user-friendly platform for meal access within the school environment.
+                                    Designed to streamline the delivery of Free Lunch to students during their term in La Verdad Christian College. The system aims to improve efficiency in managing Free Lunch Distribution by providing a reliable and user-friendly platform for meal access within the school environment.
                                 </p>
 
                                 <div className="flex justify-center items-center mb-[25px] gap-[15px]"> 
