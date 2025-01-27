@@ -17,7 +17,7 @@ const MealInput = () => {
             <CardContent>
             <div className="w-full">
                 <div className="focus:outline-none">
-                    <Input type="text"/>
+                    <Input type="text" placeholder="Input Viand Name"/>
                 </div>
             </div>
             </CardContent>
