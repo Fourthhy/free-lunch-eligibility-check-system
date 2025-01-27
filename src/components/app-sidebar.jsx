@@ -43,10 +43,10 @@ const data = {
       icon: ChartNetwork,
       isActive: true,
       items: [
-        { title: "Daily", url: "Insights/daily", },
-        { title: "Weekly", url: "Insights/weekly", },
-        { title: "Monthly", url: "Insights/monthly", },
-        { title: "Semester", url: "Insights/semestral", },
+        { title: "Daily", url: "insights/daily", },
+        { title: "Weekly", url: "insights/weekly", },
+        { title: "Monthly", url: "insights/monthly", },
+        { title: "Semester", url: "insights/semestral", },
       ],
     },
     {

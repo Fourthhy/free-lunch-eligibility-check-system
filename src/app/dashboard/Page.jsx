@@ -29,18 +29,18 @@ export default function Page() {
 
       switch (pathname) {
         case 'adminPageinsight':
-          list = [{ parent: "insights", child: "Daily" }];
+          list = [{ parent: "Insights", child: "Daily" }];
         case 'adminPageinsightsdaily':
-          list = [{ parent: "insights", child: "Daily" }];
+          list = [{ parent: "Insights", child: "Daily" }];
           break;
         case 'adminPageinsightsweekly':
-          list = [{ parent: "insights", child: "Weekly" }];
+          list = [{ parent: "Insights", child: "Weekly" }];
           break;
         case 'adminPageinsightsmonthly':
-          list = [{ parent: "insights", child: "Monthly" }];
+          list = [{ parent: "Insights", child: "Monthly" }];
           break;
         case 'adminPageinsightssemestral':
-          list = [{ parent: "insights", child: "Semestral" }];
+          list = [{ parent: "Insights", child: "Semestral" }];
           break;
         case 'adminPageschedule':
           list = [{ parent: "Schedule" }];
