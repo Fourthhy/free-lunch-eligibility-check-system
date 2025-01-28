@@ -13,7 +13,7 @@ const DailyCard = () => {
             <CardContent className="flex flex-col my-[20px] justify-center gap-[10px]">
                 <div>
                     <CardTitle> 400 </CardTitle>
-                    <CardDescription> meals claimed </CardDescription>
+                    <CardDescription> meals calimed </CardDescription>
                 </div>
                 <div>
                     <CardTitle> 100 </CardTitle>

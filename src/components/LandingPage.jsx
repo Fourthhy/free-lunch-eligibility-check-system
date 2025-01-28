@@ -34,16 +34,15 @@ function LandingPage() {
                                     </Link>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
                     <div className="h-[calc(100vh-145px)] w-full  flex items-center">
-                        <img src="/hero-image.svg" alt="" className="h-[80%]  ml-[1vw]"/>
+                        <img src="/kitchen.jpg" alt="" className="h-[80%] ml-[1vw] opacity-80"/>
                     </div>
 
                 </div>
-        </div>
+            </div>
         </>
     )
 }
