@@ -37,8 +37,8 @@ function LandingPage() {
                         </div>
                     </div>
 
-                    <div className="h-[calc(100vh-145px)] w-full  flex items-center">
-                        <img src="/kitchen.jpg" alt="" className="h-[80%] ml-[1vw] opacity-80"/>
+                    <div className="h-[calc(100vh-145px)] w-full flex items-center">
+                        <img src="/kitchen.jpg" alt="" className="h-[80%] ml-[1vw] opacity-80 rounded-[5px]"/>
                     </div>
 
                 </div>
