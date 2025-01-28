@@ -21,9 +21,6 @@ function HeaderBar() {
                     </div>
                 </div>
 
-                <div className="h-[100%] w-[50%] flex justify-end items-center mr-[30px]">
-                    <img src="/motto-text.svg" alt="" className="h-[25] w-[355]" />
-                </div>
             </div>
         </>
     )
