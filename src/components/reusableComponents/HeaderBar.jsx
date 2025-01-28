@@ -23,7 +23,8 @@ function HeaderBar() {
 
             </div>
         </>
+
     )
 }
 
-export default HeaderBar 
+export default HeaderBar;

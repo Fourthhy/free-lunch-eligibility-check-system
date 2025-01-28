@@ -40,7 +40,7 @@ export default function Page() {
           list = [{ parent: "Insights", child: "Monthly" }];
           break;
         case 'adminPageinsightssemestral':
-          list = [{ parent: "Insights", child: "Semestral" }];
+          list = [{ parent: "Insights", child: "Semester" }];
           break;
         case 'adminPageschedule':
           list = [{ parent: "Schedule" }];
