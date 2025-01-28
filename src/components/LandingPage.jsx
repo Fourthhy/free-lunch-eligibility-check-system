@@ -17,7 +17,7 @@ function LandingPage() {
                         <div className="w-[75%] min-h-[400px] max-h-[calc(100%-400px)] flex items-center">
                             <div>
                                 <p className="text-[2rem] text-white font-roboto font-bold text-center pb-[45px]">
-                                    FREE LUNCH SYSTEM
+                                    FREE LUNCH ELIGIBILITY CHECK
                                 </p>
 
                                 <p className="text-[1rem] text-white font-roboto font-bold text-center pb-[40px]">
