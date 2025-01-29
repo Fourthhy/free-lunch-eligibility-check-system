@@ -17,6 +17,7 @@
     <li> [Li4nor](https://github.com/Li4nor) UI/UX </li>
   </ul>
 </div>
+[Li4nor](https://github.com/Li4nor)
 
 <h2>This system is created to solve the following problems experienced by our students:</h2>
 <ul>
