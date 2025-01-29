@@ -1,4 +1,6 @@
-<div style="text-align: center;">
+<div align="center">
   # Free Lunch Eligibility Check System
-</div>
+  using
+# React + Vite + Firebase + Tailwind + Shadcn
+/div>
 # React + Vite + Firebase + Tailwind + Shadcn
