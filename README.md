@@ -1,4 +1,4 @@
 <div align="center">
-  #Free Lunch Eligibility Check System
+  <h1>Free Lunch Eligibility Check System</h1>
 </div>
 
