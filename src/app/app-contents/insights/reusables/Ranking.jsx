@@ -40,7 +40,7 @@ const chartConfig = {
 
 export default function Component() {
   return (
-    <Card>
+    <Card className="bg-sidebar-accent">
       <CardHeader>
         <CardTitle>Ranking</CardTitle>
       </CardHeader>
