@@ -7,14 +7,14 @@
 <div align="center">
   <h2>The Team who made it possible:</h2>
   <ul>
-- [jeanrosetalen](https://github.com/jeanrosetalen) - Project Manager
-- [oli-oil](https://github.com/oli-oil) - Project Manager
-- [Fourthhy](https://github.com/Fourthhy) - Lead Developer
-- [romeyiow](https://github.com/romeyiow) - Lead Developer
-- [jhem-jhem](https://github.com/jhem-jhem) - UI/UX
-- [mahermosamalapit](https://github.com/mahermosamalapit) - UI/UX
-- [markjosephsantos1234](https://github.com/markjosephsantos1234) - System QA
-- [Li4nor](https://github.com/Li4nor) - UI/UX
+-jeanrosetalen - Project Manager <br /> 
+- oli-oil - Project Manager <br />
+- Fourthhy - Lead Developer <br />
+- romeyiow - Lead Developer <br />
+- jhem-jhem - UI/UX <br />
+- mahermosamalapit- UI/UX <br />
+- markjosephsantos1234 - System QA <br />
+- Li4nor - System QA <br />
   </ul>
 </div>
 
