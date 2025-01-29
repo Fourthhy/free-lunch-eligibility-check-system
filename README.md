@@ -4,7 +4,7 @@
   <h2>React + Vite + Shadcn + Tailwind + Firebase</h2>
 </div>
 
-<h2>This problem is created to solve the following problems experiened by our students:</h2>
+<h2>This system is created to solve the following problems experiened by our students:</h2>
 <ul>
   <li>Loss of Meal Coupon
   <li>Displacement of Meal Coupon </li>
