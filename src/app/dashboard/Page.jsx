@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useState, useEffect } from "react";
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import HeaderBar from "@/components/reusableComponents/HeaderBar";
 import { Outlet, useLocation } from "react-router-dom";
 import {

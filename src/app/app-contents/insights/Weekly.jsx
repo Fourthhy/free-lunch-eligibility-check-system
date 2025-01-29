@@ -1,6 +1,6 @@
 import React from 'react';
 import Graph from "./reusables/Graph"
-import NewRanking from "./reusables/NewRanking"
+import NewRanking from "./reusables/Ranking"
 import AnotherCard from "./reusables/AnotherCard"
 
 class Weekly extends React.Component {
