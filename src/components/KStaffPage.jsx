@@ -9,7 +9,7 @@ const KStaffPage = () => {
   const [studentName, setStudentName] = useState("Surname, Firstname M.I.");
   const [course, setCourse] = useState("Program and Year");
 
-  // Simulate fetching data from an API or database
+  // Simulate fetching data from an API; prep for the future 
   const fetchStudentData = (id) => {
     const mockDatabase = {
       "21-00012345": {
@@ -90,12 +90,12 @@ const KStaffPage = () => {
       >
         <div className="absolute inset-0 bg-[#1F3463] bg-opacity-80 backdrop-blur-[5px] z-0"></div>
 
-        {/* Back button */}
+      
         <div className="absolute top-0 left-0 px-4 py-2 flex items-center">
           <Link to="/">
             <button
               className="flex items-center text-[#F8F8F899] hover:text-[#F8F8F8]">
-              <CircleArrowLeft size={24} className="mr-2" /> {/* Back Icon */}
+              <CircleArrowLeft size={24} className="mr-2" /> 
               <span className="text-lg">Back</span>
             </button>
           </Link> 

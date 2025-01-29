@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSidebar } from "@/components/ui/sidebar"; // Adjust the path as necessary
+import { useSidebar } from "@/components/ui/sidebar"; 
 import {
     AlertDialog,
     AlertDialogAction,
@@ -256,9 +256,6 @@ export default function Schedule() {
                     </button>
                 </div>
             </Table>
-
-
-            {/* Add Schedule Button */}
 
         </div>
     );
