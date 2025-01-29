@@ -7,17 +7,16 @@
 <div align="center">
   <h2>The Team who made it possible:</h2>
   <ul>
-    <li> [jeanrosetalen](https://github.com/jeanrosetalen) Project Manager </li>
-    <li> [oli-oil](https://github.com/oli-oil) Project Manager </li>
-    <li> [Fourthhy](https://github.com/Fourthhy) Lead Developer </li>
-    <li> [romeyiow](https://github.com/romeyiow) Lead Developer </li>
-    <li> [jhem-jhem](https://github.com/jhem-jhem) UI/UX </li>
-    <li> [mahermosamalapit](https://github.com/mahermosamalapit) UI/UX </li>
-    <li> [markjosephsantos1234](https://github.com/markjosephsantos1234/) System QA </li>
-    <li> [Li4nor](https://github.com/Li4nor) UI/UX </li>
+- [jeanrosetalen](https://github.com/jeanrosetalen) - Project Manager
+- [oli-oil](https://github.com/oli-oil) - Project Manager
+- [Fourthhy](https://github.com/Fourthhy) - Lead Developer
+- [romeyiow](https://github.com/romeyiow) - Lead Developer
+- [jhem-jhem](https://github.com/jhem-jhem) - UI/UX
+- [mahermosamalapit](https://github.com/mahermosamalapit) - UI/UX
+- [markjosephsantos1234](https://github.com/markjosephsantos1234) - System QA
+- [Li4nor](https://github.com/Li4nor) - UI/UX
   </ul>
 </div>
-[Li4nor](https://github.com/Li4nor)
 
 <h2>This system is created to solve the following problems experienced by our students:</h2>
 <ul>
